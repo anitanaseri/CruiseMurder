@@ -39,3 +39,4 @@ C:\Dev\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfo.cs
 C:\Dev\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.RazorTargetAssemblyInfo.cache
 C:\Dev\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.dll
 C:\Dev\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.pdb
+C:\Dev\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.csprojResolveAssemblyReference.cache

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace backend.Models
 {
-    public class SceneItem
+    public class ChoiceItem
     {
-        public string SceneContent { get; set; }
-        public List<ChoiceItem> Choices { get; set; }
+        public int Consequent { get; set; }
+
+        public string Text { get; set; }
     }
 }
