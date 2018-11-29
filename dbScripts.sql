@@ -71,7 +71,7 @@ create procedure getChoicesFromScene
 (
 	@id int
 )
-as select optionText from Choices where precedent = @id;
+as select consequent, optionText from Choices where precedent = @id;
 go
 
 --getChoiceFromScene 1
@@ -124,6 +124,14 @@ addScene 'Damn it! The phone is locked. She doesn’t seem like the sort to put a 
 go
 addScene 'Her passport is sitting in the drawer. Surely she wouldn’t have her own birthday as the password...'
 go
+addScene 'It worked! 
+You hurriedly scroll through her photos looking for anything incriminating'
+go
+addScene 'WHAT? This isn’t possible!'
+go
+addScene 'You find a series of drinks receipts all the way up to 4am last night. That can’t be right. When did she kill Dom? You need to find out the truth.'
+go
+addScene 'While you’re looking underneath the bed, Eleanor’s husband comes back to the room. You recognise him from one of the polaroids. “Who are you?!” he exclaims. Before you can say a word, he calls the ship’s reception. “Hello? Yes, this woman has BARGED into my room and I’d like her dealt with.” You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you’re on trial for murder.'
 
 addChoice 1, 2, 'Look around Dom''s room';
 go
@@ -138,4 +146,4 @@ getScene 1;
 go
 select * from Choices
 go
-
+select * from Scenes
