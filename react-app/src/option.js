@@ -2,27 +2,30 @@ import React, { Component } from 'react';
 
 
 
-// const Option = props => { 
-//     const choices = props.sceneData.option((row, index) => {
-//         return (
-         
-//                 <button onClick={() => props.removeCharacter(index)}>Delete</button>
-        
-//         );
-//     });
+const Options = props => { 
+    const choices = props.optionData.filter(option => {
+        if ( option.precedent === 1){
 
-//     return <tbody>{choices}</tbody>;
-// }
+            return (
+             
+                    <button>Delete</button>
+            
+            );
+        }
+    });
+
+    return choices;
+}
 
 
 class Option extends Component {
 
 
     render() {
-        const {sceneData} = this.props;
+        const {optionData} = this.props;
         return (
          <div> 
-             HI
+             <Options optionData={optionData}/>
          </div>
         );
     }

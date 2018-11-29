@@ -13,12 +13,14 @@ class App extends Component {
     ],
     option:[
        {
+        precedent: 1,
         consequent: 2,
         text: 'blah'
       },
        {
+        precedent: 1,
         consequent: null,
-        text: "game over"
+        text: "blah 2"
       }]
     }
   
