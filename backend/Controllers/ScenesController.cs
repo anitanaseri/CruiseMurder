@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using backend.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -12,35 +13,40 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ScenesController : ControllerBase
     {
-        SqlConnection con = new SqlConnection("Server=localhost;Database=vacation_program;Integrated Security=SSPI");
+        string databaseName = "TestDB";
+        SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
 
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            string qry = "select * from Scenes";
-            da = new SqlDataAdapter(qry, con);
-            ds = new DataSet();
-            da.Fill(ds);
-            List<string> result = new List<string>();
-            for (int i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
-            {
-                result.Add(ds.Tables[0].Rows[i].ItemArray[1].ToString());
-            }
-            return result;
-        }
+     
 
-        // GET api/values/5
+        // GET api/scenes/id
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            string qry = "select * from Scenes where sceneId = " + id;
+            con = new SqlConnection("Server=localhost;Database=" + databaseName + ";Integrated Security=SSPI");
+            string qry = "getScene " + id;
             da = new SqlDataAdapter(qry, con);
             ds = new DataSet();
             da.Fill(ds);
-            return ds.Tables[0].Rows[0].ItemArray[1].ToString();
+            SceneItem item = new SceneItem
+            {
+                SceneContent = ds.Tables[0].Rows[0].ItemArray[0].ToString()
+            };
+
+            qry = "getChoicesFromScene " + id;
+            da = new SqlDataAdapter(qry, con);
+            ds = new DataSet();
+            da.Fill(ds);
+            List<string> choices = new List<string>();
+            for(int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                choices.Add(ds.Tables[0].Rows[i].ItemArray[0].ToString());
+            }
+            item.Choices = choices;
+
+            string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(item);
+            return jsonString;
         }
     }
 }
