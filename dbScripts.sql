@@ -185,6 +185,72 @@ You''re not a bad person.\n
 .\n
 After all, he deserved it.'
 go
+addScene '''What do you want?'' \n
+She sounds pissed at you. \n
+''You enjoying the cruise?'' you enthusiastically enquire.\n
+''I was enjoying it more before you showed up''\n
+What did you do?'
+go
+addScene '''What do you want?''\n
+She sounds pissed at you.\n
+''You enjoying the cruise?'' you enthusiastically enquire.\n
+''I was enjoying it more before you showed up''\n
+What did you do?'
+go
+addScene 'You slowly start to recollect that you and Dom were chatting for hours in the ballroom.\n
+''Slow down, we were just having fun!''\n
+''That''s how it starts! I was going to leave my damn husband for him!''\n
+The silence could be cut with a knife.'
+go
+addScene 'You decide it''s time to accuse her of Dom''s murder.\n
+''Look bitch, I know you did it.''\n
+''...did what?''\n
+''Murdered Dom! You couldn''t handle that he liked me better! And you were dumb enough to leave evidence all over his room!''\n
+''I-I didn’t! Why would I do that?! We have to go to the police.''\n
+''I don''t think we should'', you reply. You have a bad feeling that you''re going to look like a suspect.\n
+''Of course we should. I''m going to call them right right now.'''
+go
+addScene 'You follow her to the reception and stand while she makes the phone call. The police come and the investigation goes on, before suddenly you are arrested as the prime suspect.\n
+GAME OVER'
+go 
+addScene '''You DEFINITELY shouldn''t call them. Your earrings and cigars were all over the room!''\n
+''I didn''t kill him! I can prove it. I was in the ballroom all night with my husband.''\n
+Eleanor reaches for her bag and shows you the receipts of the drinks she bought late last night with her husband.\n
+''I just don''t get it. Why, why. Why would anyone kill Dom?'''
+go
+addScene 'You leave her on the verge of tears in the ballroom while you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
+go
+addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
+go 
+addScene 'The video begins with Dom walking back to you, sitting on the bed. The two of you begin making out. You had no idea he was recording. What a creep! Things start to heat up when he becomes too aggressive. You try to push him away but he doesn''t stop. 
+Reaching out for anything, your hand closes around the gold letter opener and brings it up to his head. Blood spurts out of his neck across the room.'
+go
+addScene 'You head back out to the reception, heart pounding, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing.\n
+.\n
+.\n
+.\n
+It''s going to be you and Dom''s little secret. 
+THE END'
+go
+addScene 'Very moral of you. You head back out to the reception, heart pounding, and ask to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars.\n
+GAME OVER'
+go
+addScene 'The two of you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
+go
+addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
+go
+addScene 'The video begins with Dom walking back to you, sitting on the bed. The two of you begin making out. You had no idea he was recording. What a creep! Things start to heat up when he becomes too aggressive. You try to push him away but he doesn''t stop. Reaching out for anything, your hand closes around the gold letter opener and blood spurts out of his neck across the room.\n
+There is a pause, before Eleanor looks at you in fear and starts to back out of the room.'
+go
+addScene 'While she struggles with the door, you tug the letter opener out of Dom''s neck, accompanied by a dribble of thickened blood. As she panics and tears at the door handle, you run up behind her and plunge the letter opener into her neck.\n
+You wash your hands thoroughly and head back out to the reception, finally feeling steady, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing.\n
+
+It needed to be done.\n
+THE END'
+go
+addScene 'Very moral of you. You head back out to the reception, heart pounding. Eleanor asks to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars.\n
+GAME OVER'
+go
 
 --Start adding choices--
 
