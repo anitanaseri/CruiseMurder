@@ -206,7 +206,7 @@ addScene 'You decide it''s time to accuse her of Dom''s murder.\n
 ''Look bitch, I know you did it.''\n
 ''...did what?''\n
 ''Murdered Dom! You couldn''t handle that he liked me better! And you were dumb enough to leave evidence all over his room!''\n
-''I-I didn’t! Why would I do that?! We have to go to the police.''\n
+''I-I didnï¿½t! Why would I do that?! We have to go to the police.''\n
 ''I don''t think we should'', you reply. You have a bad feeling that you''re going to look like a suspect.\n
 ''Of course we should. I''m going to call them right right now.'''
 go
@@ -314,7 +314,7 @@ go
 
 --updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
 
-/*
+
 --Eleanor's branch starts here--
 
 addChoice 6, 28, 'Talk to the woman';
@@ -335,7 +335,7 @@ addChoice 31, 32, 'Concede and go with her to call the police';
 go
 addChoice 31, 33, 'Threaten her with the evidence against her';
 go
-addChoice 33, 34, 'Suggest to go and check Dom’s room while Eleanor is in shock';
+addChoice 33, 34, 'Suggest to go and check Dom''s room while Eleanor is in shock';
 go
 addChoice 33, 39, 'Go with Eleanor to check Dom''s room';
 go
@@ -355,12 +355,6 @@ addChoice 41, 42, 'Grab the letter opener and stab Eleanor';
 go
 addChoice 41, 43, 'Confess';
 go
-
-
-
-
-
-*/
 
 select * from Choices
 go
