@@ -1,4 +1,4 @@
-use SQL_Workshop_2018
+--use SQL_Workshop_2018
 ---------------------- SCENES TABLES -----------------
 drop table choices;
 drop table scenes;
@@ -163,7 +163,7 @@ You open your phone and you see a stack of messages from your friend Lucie.\n
 
 ''hey dude what''s going on???''\n
 ''dude are u ok?? talk to me!!!!!''\n
-''ur scaring me!!!! hello ?????'''\n
+''ur scaring me!!!! hello ?????'''
 go
 addScene '''Omg i didn’t wanna do it''\n
 ''Lucie i think i did something very bad text me back''\n
@@ -186,13 +186,72 @@ You''re not a bad person.\n
 After all, he deserved it.'
 go
 
-addChoice 1, 2, 'Look around Dom''s room';
+--Start adding choices--
+
+addChoice 1, 2, 'Go check on Dom';
 go
-addChoice 1, 3, 'Report the murder';
+addChoice 2, 3, 'Report the murder';
 go
-updateScene @textContent = 'Find Eleanor''s things, cigarette butts, your ring, room keycard', @id = 3
+addChoice 2, 4, 'Look around Dom''s room';
 go
-updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
+addChoice 4, 5, 'Leave Dom''s room';
+go
+addChoice 5, 8, 'Go the ballroom';
+go
+addChoice 5, 6, 'Follow her out to the desk';
+go
+addChoice 6, 7, 'Tell Eleanor about Dom''s murder';
+go
+addChoice 6, 8, 'Go the the Ballroom';
+go
+
+--Eleanor's branch starts here--
+--addChoice 6, 28, 'Add Eleanor''s branch soon';
+--go
+
+addChoice 8, 9, 'Go to Eleanor''s room';
+go
+addChoice 9, 10, 'Go inside right away';
+go
+addChoice 9, 11, 'Go back out to reception';
+go
+addChoice 11, 12, 'Ask receptionist to page Eleanor’s husband';
+go
+addChoice 12, 13, 'Go back to Eleanor''s room';
+go
+addChoice 13, 14, 'Search Eleanor''s room';
+go
+addChoice 14, 15, 'Look through the phone';
+go
+addChoice 15, 16, 'Search Eleanor''s room for clues to open her phone';
+go
+addChoice 16, 17, 'Try Eleanor''s birthday';
+go
+addChoice 17, 18, 'Check Eleanor''s email';
+go
+addChoice 18, 19, 'Huh???';
+go
+addChoice 19, 20, 'Keep searching';
+go
+addChoice 19, 21, 'Head to reception';
+go
+addChoice 21, 23, 'Bribe $50';
+go
+addChoice 21, 25, 'Bribe $200';
+go
+addChoice 21, 22, 'Try to take the paper';
+go
+addChoice 23, 24, 'Bribe $50 (again)';
+go
+addChoice 23, 25, 'Bribe $200';
+go
+addChoice 25, 26, 'Read the receipts list quickly';
+go
+addChoice 26, 27, 'Check the messages you sent last night';
+go
+
+
+--updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
 go
 
 select * from Choices
