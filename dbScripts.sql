@@ -11,7 +11,6 @@ drop procedure getChoicesFromScene;
 drop procedure updateChoice;
 drop procedure addChoice;
 
-
 --select * from Scenes;
 
 create table Scenes(
@@ -206,10 +205,6 @@ go
 addChoice 6, 8, 'Go the the Ballroom';
 go
 
---Eleanor's branch starts here--
---addChoice 6, 28, 'Add Eleanor''s branch soon';
---go
-
 addChoice 8, 9, 'Go to Eleanor''s room';
 go
 addChoice 9, 10, 'Go inside right away';
@@ -251,9 +246,55 @@ go
 addChoice 26, 27, 'Check the messages you sent last night';
 go
 
-
 --updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
+
+/*
+--Eleanor's branch starts here--
+
+addChoice 6, 28, 'Talk to the woman';
 go
+addChoice 28, 29, 'Talk to the woman again';
+go
+addChoice 28, 8, 'Go to the Ballroom';
+go
+addChoice 29, 30, 'Keep talking to Eleanor';
+go
+addChoice 29, 8, 'Go to the Ballroom';
+go
+addChoice 30, 31, 'Accuse her of Dom''s murder';
+go
+addChoice 30, 8, 'Go to the Ballroom';
+go
+addChoice 31, 32, 'Concede and go with her to call the police';
+go
+addChoice 31, 33, 'Threaten her with the evidence against her';
+go
+addChoice 33, 34, 'Suggest to go and check Dom’s room while Eleanor is in shock';
+go
+addChoice 33, 39, 'Go with Eleanor to check Dom''s room';
+go
+addChoice 34, 35, 'Search thoroughly';
+go
+addChoice 35, 36, 'Play the most recent video on the GoPro';
+go
+addChoice 36, 37, 'Get rid of the GoPro';
+go
+addChoice 36, 38, 'Confess';
+go
+addChoice 39, 40, 'Search thoroughly with Eleanor';
+go
+addChoice 40, 41, 'Play the most recent video on the GoPro with Eleanor';
+go
+addChoice 41, 42, 'Grab the letter opener and stab Eleanor';
+go
+addChoice 41, 43, 'Confess';
+go
+
+
+
+
+
+*/
 
 select * from Choices
 go
