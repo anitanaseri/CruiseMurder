@@ -38,10 +38,13 @@ namespace WebApplication1.Controllers
             da = new SqlDataAdapter(qry, con);
             ds = new DataSet();
             da.Fill(ds);
-            List<string> choices = new List<string>();
+            List<ChoiceItem> choices = new List<ChoiceItem>();
             for(int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                choices.Add(ds.Tables[0].Rows[i].ItemArray[0].ToString());
+                ChoiceItem choice = new ChoiceItem();
+                choice.Consequent = (int) ds.Tables[0].Rows[i].ItemArray[0];
+                choice.Text = ds.Tables[0].Rows[i].ItemArray[1].ToString();
+                choices.Add(choice);
             }
             item.Choices = choices;
 
