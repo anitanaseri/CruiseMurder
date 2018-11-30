@@ -6,33 +6,30 @@ import Option from './option';
 
 class App extends Component {
 
-  state ={ 
-    scene : [
-      "leave the room",
-      "you're in a room"
-    ],
-    option:[
-       {
-        precedent: 1,
-        consequent: 2,
-        text: 'blah'
-      },
-       {
-        precedent: 1,
-        consequent: null,
-        text: "blah 2"
-      }]
+  state = {
+    test: {
+      SceneContent: "You just woke up on the floor of your room. You feel sick and hungover, probably shouldn't have drank that much at this age.... It's so hard to even keep your eyes open but you have a feeling that something is wrong. Don't bother trying to remember what happened last night -- you won't remember anything anyway after having that many glasses of wine. You were hanging out with Dom, things were heating up and then...",
+      choices: [
+        {
+          Consequent: 2,
+          Text: "Look around the room"
+        },
+        {
+          Consequent: 3,
+          Text: "Report the murder"
+        }
+      ]
     }
-  
+  }
 
 
- 
+
+
   render() {
     return (
       <div>
-        <Scene sceneData={this.state.scene} index={1}/>
-        <Option optionData={this.state.option}/>
-
+        <Scene sceneData={this.state.test} />
+       
       </div>
     );
   }
