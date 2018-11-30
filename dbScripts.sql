@@ -277,7 +277,7 @@ addChoice 9, 10, 'Go inside right away';
 go
 addChoice 9, 11, 'Go back out to reception';
 go
-addChoice 11, 12, 'Ask receptionist to page Eleanor�s husband';
+addChoice 11, 12, 'Ask receptionist to page Eleanor''s husband';
 go
 addChoice 12, 13, 'Go back to Eleanor''s room';
 go
