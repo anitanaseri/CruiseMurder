@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
+import Option from './option';
 
 
-
-const Options = props => { 
-    return (
-        <p>
-            {
-                props.sceneData.choices.map(choice =>
-                   <button>{choice.Text}</button> 
-                )
-            }
-
-        </p>
-    )
-
-}
 
 
 class Scene extends Component {
+    choiceClick = (consequent) => {
+        console.log("clicked button " + consequent);
+        fetch("http://localhost:51634/api/scenes/" + consequent)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                  console.log(result);
+            });
+    }
+
+    attachOptions = (choices) => {
+        let res_element = [];
+        let children = [];
+        for(let i = 0; i < choices.length; i++){
+            children.push(<button onClick={this.choiceClick.bind(this, choices[i].Consequent)}>{choices[i].Text}</button>)
+        }
+        res_element.push(<p>{children}</p>)
+        return res_element;
+    }
 
 
     render() {
@@ -27,7 +33,7 @@ class Scene extends Component {
             TITLE
             <br/>
             {sceneData.SceneContent}
-            <Options sceneData={sceneData}/>
+            {this.attachOptions(sceneData.choices)}
          </div>
         );
     }
