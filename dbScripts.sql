@@ -163,9 +163,9 @@ You open your phone and you see a stack of messages from your friend Lucie.\n
 
 ''hey dude what''s going on???''\n
 ''dude are u ok?? talk to me!!!!!''\n
-''ur scaring me!!!! hello ?????'''\n
+''ur scaring me!!!! hello ?????'''
 go
-addScene '''Omg i didn’t wanna do it''\n
+addScene '''Omg i didn''t wanna do it''\n
 ''Lucie i think i did something very bad text me back''\n
 ''What should i do now''\n
 ''They’re gonna find me helpppp''\n
