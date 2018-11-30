@@ -5,21 +5,21 @@ import Option from './option';
 
 
 class Scene extends Component {
-    choiceClick = (consequent) => {
+    choiceClick = (consequent, sceneHandler) => {
         console.log("clicked button " + consequent);
         fetch("http://localhost:51634/api/scenes/" + consequent)
             .then(res => res.json())
             .then(
                 (result) => {
-                  console.log(result);
+                    sceneHandler(result);
             });
     }
 
-    attachOptions = (choices) => {
+    attachOptions = (choices, sceneHandler) => {
         let res_element = [];
         let children = [];
         for(let i = 0; i < choices.length; i++){
-            children.push(<button onClick={this.choiceClick.bind(this, choices[i].Consequent)}>{choices[i].Text}</button>)
+            children.push(<button onClick={this.choiceClick.bind(this, choices[i].Consequent, sceneHandler)}>{choices[i].Text}</button>)
         }
         res_element.push(<p>{children}</p>)
         return res_element;
@@ -27,13 +27,14 @@ class Scene extends Component {
 
 
     render() {
-        const {sceneData} = this.props;
+        const {sceneHandler, sceneData} = this.props;
+
         return (
          <div> 
             TITLE
             <br/>
             {sceneData.SceneContent}
-            {this.attachOptions(sceneData.choices)}
+            {this.attachOptions(sceneData.choices, sceneHandler)}
          </div>
         );
     }
