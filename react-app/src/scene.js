@@ -22,11 +22,12 @@ class Scene extends Component {
             });
     }
 
-    attachOptions = (Choices, sceneHandler) => {
+    attachOptions = (Choices, sceneHandler, buttonHidden) => {
+        if(buttonHidden) return <br/>;
         let choicesComponent = Choices.map((choice, i) => 
             (
                 <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
-                    {Choices[i].Text}
+                    {Choices[i].Text} 
                 </button>
             )
         )
@@ -34,11 +35,11 @@ class Scene extends Component {
     }
 
     render() {
-        const {sceneHandler, sceneData} = this.props;
+        const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
          <div>
             {formatString(sceneData.SceneContent)}
-            {this.attachOptions(sceneData.Choices, sceneHandler)}
+            {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
          </div>
         );  
     }
