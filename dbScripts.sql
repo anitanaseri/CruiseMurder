@@ -11,7 +11,6 @@ drop procedure getChoicesFromScene;
 drop procedure updateChoice;
 drop procedure addChoice;
 
-
 --select * from Scenes;
 
 create table Scenes(
@@ -99,18 +98,18 @@ addScene 'You see the gorgeous woman from the hallway leaning over the railing, 
 go
 addScene 'Her gaze pierces you, and she appears to be about to say something, before storming out of the room. You continue your investigation but before long, the ship''s security guards are escorting you to a locked room and after a short, unfair interview with police, you''re on trial for murder. GAME OVER'
 go
-addScene 'Heading back into the ballroom, one of the wait staff calls out to you. \n
-''Bet you had a good night, hey love?'' they jeer, with a funny look on their face. \n
-What happened? He glances over to the polaroids on the wall. \n
-Three of the pictures catch your eye -- one of you and Dom, one of Dom and the woman on the deck, and one of the three of you, with the woman looking murderously angry. A neatly written caption reads ''Look at Eleanor''s face!'' with an arrow pointing at the woman.\n
+addScene 'Heading back into the ballroom, one of the wait staff calls out to you.  
+''Bet you had a good night, hey love?'' they jeer, with a funny look on their face.  
+What happened? He glances over to the polaroids on the wall.  
+Three of the pictures catch your eye -- one of you and Dom, one of Dom and the woman on the deck, and one of the three of you, with the woman looking murderously angry. A neatly written caption reads ''Look at Eleanor''s face!'' with an arrow pointing at the woman. 
 You look at the key card in your pocket. If it''s not yours, and it''s not Dom''s, it must be hers.'
 go
 addScene 'You stand outside the slightly ajar door, your heart beating. You can see a shadowy figure inside, sitting on the bed. Perhaps her husband?!'
 go
-addScene 'You walk inside and a whiskery man turns around. You recognise him from one of the polaroids.\n
-''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception.\n
-''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.''\n
-You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder.\n
+addScene 'You walk inside and a whiskery man turns around. You recognise him from one of the polaroids. 
+''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. 
+''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' 
+You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder. 
 GAME OVER'
 go
 addScene 'Hurry up! You don''t have much time: you need to prove that cold-hearted witch killed Dom. He was so much kinder than her, and she couldn''t bear to see him talking to any other woman. Oh poor Dominic! You need to hurry up and get that man out of the room.'
@@ -120,14 +119,14 @@ go
 addScene 'You have a couple of minutes til Eleanor''s husband comes back. There should be something here that proves that arrogant witch has done it. There are pillows and blanket on the couch and one side of the bed is untouched. Evidently things aren''t great between them.
 You don''t have much time to waste.'
 go
-addScene 'You find her phone sitting on her bedside table. The idiot forgot to take her phone with her. Not wise when you''ve just committed a murder.\n
+addScene 'You find her phone sitting on her bedside table. The idiot forgot to take her phone with her. Not wise when you''ve just committed a murder. 
 You need to look through the phone.'
 go
 addScene 'Damn it! The phone is locked. She doesn''t seem like the sort to put a complex password on her phone, however.'
 go
 addScene 'Her passport is sitting in the drawer. Surely she wouldn''t have her own birthday as the password...'
 go
-addScene 'It worked!\n
+addScene 'It worked! 
 You hurriedly scroll through her photos looking for anything incriminating'
 go
 addScene 'WHAT? This isn''t possible!'
@@ -135,56 +134,122 @@ go
 addScene 'You find a series of drinks receipts all the way up to 4am last night. That can''t be right. When did she kill Dom? You need to find out the truth.'
 go
 addScene 'While you''re looking underneath the bed, Eleanor''s husband comes back to the room. You recognise him from one of the polaroids. ''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. ''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder.
-\n
+ 
 GAME OVER'
 go
 addScene 'You sidle up to the reception window. A stack of paper lies on the desk with what looks like records of all the customers from last night. If only you had 20/20 vision! You''re tempted to grab it, but the receptionist is standing dangerously close.'
 go
-addScene 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?''\n
+addScene 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?'' 
 You begin to stammer out an excuse but before you can, he''s calling the security over. Before you know it, you''ve been locked up and put on trial for murder.  
 GAME OVER'
 go
 addScene 'The receptionist frowns. ''I don''t know where you come from, buddy, but here things are more exxy. Four times as exxy'''
 go
-addScene '''Look buddy, that''s not going to work. Security! I need a hand!''\n
-The security come over and after a quick discussion with the receptionist, you''ve been locked up in a secure room. Within hours the police have arrived and all the evidence is pointing to you.\n
+addScene '''Look buddy, that''s not going to work. Security! I need a hand!'' 
+The security come over and after a quick discussion with the receptionist, you''ve been locked up in a secure room. Within hours the police have arrived and all the evidence is pointing to you. 
 GAME OVER'
 go
 addScene 'He reluctantly gives in. ''Be quick.'''
 go
-addScene 'You take a quick peek and see clear as day that Eleanor and her husband were in the ballroom buying drinks until very late last night.\n
-If she didn''t do it then who killed Dom?\n
-.\n
-.\n
-''Buddy, you dropped your phone last night when you were running in the hallway. You looked like you were flipping out, dude.''\n
+addScene 'You take a quick peek and see clear as day that Eleanor and her husband were in the ballroom buying drinks until very late last night. 
+If she didn''t do it then who killed Dom? 
+. 
+. 
+''Buddy, you dropped your phone last night when you were running in the hallway. You looked like you were flipping out, dude.'' 
 
-You dropped your phone? You thought you went back to your room early.\n
+You dropped your phone? You thought you went back to your room early. 
 
-You open your phone and you see a stack of messages from your friend Lucie.\n
+You open your phone and you see a stack of messages from your friend Lucie. 
 
-''hey dude what''s going on???''\n
-''dude are u ok?? talk to me!!!!!''\n
+''hey dude what''s going on???'' 
+''dude are u ok?? talk to me!!!!!'' 
 ''ur scaring me!!!! hello ?????'''
 go
-addScene '''Omg i didn''t wanna do it''\n
-''Lucie i think i did something very bad text me back''\n
-''What should i do now''\n
-''They''re gonna find me helpppp''\n
+addScene '''Omg i didn''t wanna do it'' 
+''Lucie i think i did something very bad text me back'' 
+''What should i do now'' 
+''They''re gonna find me helpppp'' 
 
-Your head starts spinning again. You find yourself stumbling into Dom''s room in a daze as your memories gradually come back. The champagne, Dom, going back to his room, and he was so insistent. You resist but he becomes aggressive and then... the letter opener! It was self defense! You didn''t mean it! \n
-You collapse onto his bed filled with guilt.\n
-.\n
-.\n
-But it was self defense. \n
-.\n
-.\n
-He brought it upon himself.\n
-.\n
-.\n
-You''re not a bad person.\n
-.\n
-.\n
+Your head starts spinning again. You find yourself stumbling into Dom''s room in a daze as your memories gradually come back. The champagne, Dom, going back to his room, and he was so insistent. You resist but he becomes aggressive and then... the letter opener! It was self defense! You didn''t mean it!  
+You collapse onto his bed filled with guilt. 
+. 
+. 
+But it was self defense.  
+. 
+. 
+He brought it upon himself. 
+. 
+. 
+You''re not a bad person. 
+. 
+. 
 After all, he deserved it.'
+go
+addScene '''What do you want?''  
+She sounds pissed at you.  
+''You enjoying the cruise?'' you enthusiastically enquire. 
+''I was enjoying it more before you showed up'' 
+What did you do?'
+go
+addScene '''What do you want?'' 
+She sounds pissed at you. 
+''You enjoying the cruise?'' you enthusiastically enquire. 
+''I was enjoying it more before you showed up'' 
+What did you do?'
+go
+addScene 'You slowly start to recollect that you and Dom were chatting for hours in the ballroom. 
+''Slow down, we were just having fun!'' 
+''That''s how it starts! I was going to leave my damn husband for him!'' 
+The silence could be cut with a knife.'
+go
+addScene 'You decide it''s time to accuse her of Dom''s murder. 
+''Look bitch, I know you did it.'' 
+''...did what?'' 
+''Murdered Dom! You couldn''t handle that he liked me better! And you were dumb enough to leave evidence all over his room!'' 
+''I-I didn''t! Why would I do that?! We have to go to the police.'' 
+''I don''t think we should'', you reply. You have a bad feeling that you''re going to look like a suspect. 
+''Of course we should. I''m going to call them right right now.'''
+go
+addScene 'You follow her to the reception and stand while she makes the phone call. The police come and the investigation goes on, before suddenly you are arrested as the prime suspect. 
+GAME OVER'
+go 
+addScene '''You DEFINITELY shouldn''t call them. Your earrings and cigars were all over the room!'' 
+''I didn''t kill him! I can prove it. I was in the ballroom all night with my husband.'' 
+Eleanor reaches for her bag and shows you the receipts of the drinks she bought late last night with her husband. 
+''I just don''t get it. Why, why. Why would anyone kill Dom?'''
+go
+addScene 'You leave her on the verge of tears in the ballroom while you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
+go
+addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
+go 
+addScene 'The video begins with Dom walking back to you, sitting on the bed. The two of you begin making out. You had no idea he was recording. What a creep! Things start to heat up when he becomes too aggressive. You try to push him away but he doesn''t stop. 
+Reaching out for anything, your hand closes around the gold letter opener and brings it up to his head. Blood spurts out of his neck across the room.'
+go
+addScene 'You head back out to the reception, heart pounding, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing. 
+. 
+. 
+. 
+It''s going to be you and Dom''s little secret. 
+THE END'
+go
+addScene 'Very moral of you. You head back out to the reception, heart pounding, and ask to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
+GAME OVER'
+go
+addScene 'The two of you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
+go
+addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
+go
+addScene 'The video begins with Dom walking back to you, sitting on the bed. The two of you begin making out. You had no idea he was recording. What a creep! Things start to heat up when he becomes too aggressive. You try to push him away but he doesn''t stop. Reaching out for anything, your hand closes around the gold letter opener and blood spurts out of his neck across the room. 
+There is a pause, before Eleanor looks at you in fear and starts to back out of the room.'
+go
+addScene 'While she struggles with the door, you tug the letter opener out of Dom''s neck, accompanied by a dribble of thickened blood. As she panics and tears at the door handle, you run up behind her and plunge the letter opener into her neck. 
+You wash your hands thoroughly and head back out to the reception, finally feeling steady, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing. 
+
+It needed to be done. 
+THE END'
+go
+addScene 'Very moral of you. You head back out to the reception, heart pounding. Eleanor asks to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
+GAME OVER'
 go
 
 --Start adding choices--
@@ -206,17 +271,13 @@ go
 addChoice 6, 8, 'Go the the Ballroom';
 go
 
---Eleanor's branch starts here--
---addChoice 6, 28, 'Add Eleanor''s branch soon';
---go
-
 addChoice 8, 9, 'Go to Eleanor''s room';
 go
 addChoice 9, 10, 'Go inside right away';
 go
 addChoice 9, 11, 'Go back out to reception';
 go
-addChoice 11, 12, 'Ask receptionist to page Eleanor�s husband';
+addChoice 11, 12, 'Ask receptionist to page Eleanor''s husband';
 go
 addChoice 12, 13, 'Go back to Eleanor''s room';
 go
@@ -251,8 +312,48 @@ go
 addChoice 26, 27, 'Check the messages you sent last night';
 go
 
-
 --updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
+
+
+--Eleanor's branch starts here--
+
+addChoice 6, 28, 'Talk to the woman';
+go
+addChoice 28, 29, 'Talk to the woman again';
+go
+addChoice 28, 8, 'Go to the Ballroom';
+go
+addChoice 29, 30, 'Keep talking to Eleanor';
+go
+addChoice 29, 8, 'Go to the Ballroom';
+go
+addChoice 30, 31, 'Accuse her of Dom''s murder';
+go
+addChoice 30, 8, 'Go to the Ballroom';
+go
+addChoice 31, 32, 'Concede and go with her to call the police';
+go
+addChoice 31, 33, 'Threaten her with the evidence against her';
+go
+addChoice 33, 34, 'Suggest to go and check Dom''s room while Eleanor is in shock';
+go
+addChoice 33, 39, 'Go with Eleanor to check Dom''s room';
+go
+addChoice 34, 35, 'Search thoroughly';
+go
+addChoice 35, 36, 'Play the most recent video on the GoPro';
+go
+addChoice 36, 37, 'Get rid of the GoPro';
+go
+addChoice 36, 38, 'Confess';
+go
+addChoice 39, 40, 'Search thoroughly with Eleanor';
+go
+addChoice 40, 41, 'Play the most recent video on the GoPro with Eleanor';
+go
+addChoice 41, 42, 'Grab the letter opener and stab Eleanor';
+go
+addChoice 41, 43, 'Confess';
 go
 
 select * from Choices
