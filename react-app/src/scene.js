@@ -30,7 +30,7 @@ class Scene extends Component {
         const {sceneHandler, sceneData} = this.props;
 
         return (
-         <div> 
+         <div className="sceneBox"> 
             TITLE
             <br/>
             {sceneData.SceneContent}
