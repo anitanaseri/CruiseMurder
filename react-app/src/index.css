@@ -12,3 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.sceneBox {
+  background-color: slateblue;
+  margin: 25px;
+}
+
+.sceneList {
+  background-color: slategrey;
+  margin-left: 25%;
+  margin-right: 25%;
+}
