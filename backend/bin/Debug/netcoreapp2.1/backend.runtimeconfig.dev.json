@@ -1,8 +1,13 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\jamie.hoffmann\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\zijian.wang\\.nuget\\packages",
+=======
+      "C:\\Users\\lam.tu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\lam.tu\\.nuget\\packages",
+>>>>>>> react_backend_refactor
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
