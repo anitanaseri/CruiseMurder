@@ -28,11 +28,16 @@ class App extends Component {
     // console.log(newState);
   }
 
+  hiddenButton = (i) => {
+    return i !== this.state.context.length - 1;
+  }
+
   render() {
     return (
       <div>
+        <h1>Title</h1>
         {this.state.context.map((scene, i) => (
-            <Scene key={i} sceneData={scene} sceneHandler={this.addScene} />
+            <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
           )
         )}
       </div>
