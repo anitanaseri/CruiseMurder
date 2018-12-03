@@ -1,5 +1,4 @@
-﻿--use SQL_Workshop_2018;
---go
+﻿
 ---------------------- SCENES TABLES -----------------
 drop table choices;
 drop table scenes;
@@ -45,7 +44,7 @@ create procedure getScene
 (
 	@id int
 )
-as select textContent, textImage, sceneId from Scenes where sceneId = @id;
+as select textContent, textImage, sceneId, ending from Scenes where sceneId = @id;
 go
 
 --getScene 3;
@@ -139,32 +138,20 @@ go
 addScene 'You find a series of drinks receipts all the way up to 4am last night. That can''t be right. When did she kill Dom? You need to find out the truth.'
 go
 addScene 'While you''re looking underneath the bed, Eleanor''s husband comes back to the room. You recognise him from one of the polaroids. ''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. ''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder.
- 
-GAME OVER'
-go
---remove the word game over
-update Scenes set textContent = 'While you''re looking underneath the bed, Eleanor''s husband comes back to the room. You recognise him from one of the polaroids. ''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. ''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder.' where sceneId = 20;
+', @ending = 'bad'
 go
 
 addScene 'You sidle up to the reception window. A stack of paper lies on the desk with what looks like records of all the customers from last night. If only you had 20/20 vision! You''re tempted to grab it, but the receptionist is standing dangerously close.'
 go
 addScene 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?'' 
 You begin to stammer out an excuse but before you can, he''s calling the security over. Before you know it, you''ve been locked up and put on trial for murder.  
-GAME OVER'
-go
---remove the word game over
-update Scenes set textContent = 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?'' 
-You begin to stammer out an excuse but before you can, he''s calling the security over. Before you know it, you''ve been locked up and put on trial for murder.' where sceneId = 22;
+', @ending = 'bad'
 go
 addScene 'The receptionist frowns. ''I don''t know where you come from, buddy, but here things are more exxy. Four times as exxy'''
 go
 addScene '''Look buddy, that''s not going to work. Security! I need a hand!'' 
 The security come over and after a quick discussion with the receptionist, you''ve been locked up in a secure room. Within hours the police have arrived and all the evidence is pointing to you. 
-GAME OVER'
-go
---remove the word game over
-update Scenes set textContent = '''Look buddy, that''s not going to work. Security! I need a hand!'' 
-The security come over and after a quick discussion with the receptionist, you''ve been locked up in a secure room. Within hours the police have arrived and all the evidence is pointing to you.' where sceneId = 24;
+', @ending = 'bad'
 go
 addScene 'He reluctantly gives in. ''Be quick.'''
 go
@@ -200,7 +187,7 @@ He brought it upon himself.
 You''re not a bad person. 
 . 
 . 
-After all, he deserved it.'
+After all, he deserved it.', @ending = 'good'
 go
 addScene '''What do you want?''  
 She sounds pissed at you.  
@@ -232,10 +219,7 @@ addScene 'You decide it''s time to accuse her of Dom''s murder.
 ''Of course we should. I''m going to call them right right now.'''
 go
 addScene 'You follow her to the reception and stand while she makes the phone call. The police come and the investigation goes on, before suddenly you are arrested as the prime suspect. 
-GAME OVER'
-go
---remove the word game over
-update Scenes set textContent = 'You follow her to the reception and stand while she makes the phone call. The police come and the investigation goes on, before suddenly you are arrested as the prime suspect.' where sceneId = 32;
+', @ending = 'bad'
 go
 addScene '''You DEFINITELY shouldn''t call them. Your earrings and cigars were all over the room!'' 
 ''I didn''t kill him! I can prove it. I was in the ballroom all night with my husband.'' 
@@ -253,15 +237,12 @@ addScene 'You head back out to the reception, heart pounding, and ask to use the
 . 
 . 
 . 
-It''s going to be you and Dom''s little secret. 
-THE END'
+It''s going to be you and Dom''s little secret. ', @ending = 'good'
 go
 addScene 'Very moral of you. You head back out to the reception, heart pounding, and ask to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
-GAME OVER'
+', @ending = 'bad'
 go
---remove the word game over
-update Scenes set textContent = 'Very moral of you. You head back out to the reception, heart pounding, and ask to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars.' where sceneId = 38;
-go
+
 addScene 'The two of you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
 go
 addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
@@ -272,15 +253,12 @@ go
 addScene 'While she struggles with the door, you tug the letter opener out of Dom''s neck, accompanied by a dribble of thickened blood. As she panics and tears at the door handle, you run up behind her and plunge the letter opener into her neck. 
 You wash your hands thoroughly and head back out to the reception, finally feeling steady, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing. 
 
-It needed to be done. 
-THE END'
+It needed to be done.', @ending = 'good'
 go
 addScene 'Very moral of you. You head back out to the reception, heart pounding. Eleanor asks to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
-GAME OVER'
+', @ending = 'bad'
 go
---remove the word game over
-update Scenes set textContent =  'Very moral of you. You head back out to the reception, heart pounding. Eleanor asks to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars.' where sceneId = 43;
-go
+
 
 --Start adding choices--
 addChoice 1, 2, 'Go check on Dom';
@@ -297,7 +275,7 @@ addChoice 5, 6, 'Follow her out to the deck';
 go
 updateChoice @textContent = 'Follow her out to the deck', @pre = 5, @cons = 6;
 go
-addChoice 6, 7, 'Tell Eleanor about Dom''s murder';
+addChoice 6, 7, 'Tell her about Dom''s murder';
 go
 addChoice 6, 8, 'Go the the Ballroom';
 go
@@ -386,10 +364,6 @@ go
 addChoice 41, 43, 'Confess';
 go
 
-select * from Choices
-go
-select * from Scenes
-go
 
 update Scenes set textImage = '
                  __ /___
@@ -479,3 +453,8 @@ update Scenes set textImage = '
            || |.|       \ | |{{{' where sceneId = 8;
 go					 
 
+
+select * from Choices
+go
+select * from Scenes
+go
