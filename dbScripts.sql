@@ -16,7 +16,7 @@ drop procedure addChoice;
 create table Scenes(
 	sceneId int identity(1,1),
 	textContent varchar(2500),
-	textImage varchar(2500),
+	textImage nvarchar(2500),
 	primary key (sceneId)
 );
 go
@@ -266,7 +266,7 @@ addChoice 4, 5, 'Leave Dom''s room';
 go
 addChoice 5, 8, 'Go the ballroom';
 go
-addChoice 5, 6, 'Follow her out to the desk';
+addChoice 5, 6, 'Follow her out to the deck';
 go
 addChoice 6, 7, 'Tell Eleanor about Dom''s murder';
 go
@@ -364,29 +364,32 @@ select * from Scenes
 go
 
 update Scenes set textImage = '
-    _____
-    \/\  |  .
-   ()))))))/
-  ((/ \)))))
-  ((),>((((
-   )\__ ))
-  ( __\((__
-   /  )\/\,\         
-  /.|/ _)_) \
- ( \ \  o| \|_\
-  \|  )_o| (__\
- _/| /.__|  _/ \__
-_(_//  /|\\ \ ||\.\
-   /   \|/ \ \_____\
-   ''-..___.''
-     \  |/
-      \ |
-     .'')|
-    ( / |
-    /.\ |
-  (_ \ )|
-   ) -/ )
- mrf-''_/|' where sceneId = 1;
+                   (  )/  
+                    )(/
+ ________________  ( /)
+()__)____________)))))   
+' where sceneId = 6;
+go
+update Scenes set textImage = '      
+      ////^\\\\
 
+      | ^   ^ |
+     @ (x) (x) @
+      |   <   |
+      |  ___  |
+       \_____/
+     ____|  |____
+    /    \__/    \
+   /              \
+'
+							  where sceneId = 2;
+go
+update Scenes set textImage = '  
+  ooo,    .---.
+ o`  o   /    |\________________
+o`   ''oooo(E)| ________   _   _)
+`oo   o` \    |/        | | | |
+  `ooo''   `---''         "-" |_|' where sceneId = 4
+ go
  select * from Scenes where sceneId = 1;
  getScene 1;
