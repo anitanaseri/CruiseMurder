@@ -11791,7 +11791,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lumi.shrestha\\.nuget\\packages\\": {},
+    "C:\\Users\\zijian.wang\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -11800,17 +11800,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Dev\\CruiseMurder\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\lumi.shrestha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\obj\\",
+      "projectPath": "C:\\Dev\\CruiseMurder\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\zijian.wang\\.nuget\\packages\\",
+      "outputPath": "C:\\Dev\\CruiseMurder\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\lumi.shrestha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zijian.wang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

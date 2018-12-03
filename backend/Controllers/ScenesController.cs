@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ScenesController : ControllerBase
     {
-        string databaseName = "TestDB";
+        string databaseName = "SQL_Workshop_2018";
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
@@ -31,7 +31,10 @@ namespace WebApplication1.Controllers
             da.Fill(ds);
             SceneItem item = new SceneItem
             {
-                SceneContent = ds.Tables[0].Rows[0].ItemArray[0].ToString()
+                SceneContent = ds.Tables[0].Rows[0].ItemArray[0].ToString(),
+                SceneImage = ds.Tables[0].Rows[0].ItemArray[1].ToString(),
+                SceneId = (int) ds.Tables[0].Rows[0].ItemArray[2],
+                EndingType = ds.Tables[0].Rows[0].ItemArray[3].ToString()
             };
 
             qry = "getChoicesFromScene " + id;

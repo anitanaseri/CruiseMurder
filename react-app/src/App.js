@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Scene from './scene';
+import ReactPlayer from 'react-player';
 
 class App extends Component {
   state = {
@@ -28,8 +29,11 @@ class App extends Component {
   addScene= (newScene) => {
     let newState = this.state;
     newState.context.push({
+      SceneId: newScene.SceneId, 
       SceneContent: newScene.SceneContent,
-      Choices: newScene.Choices
+      Choices: newScene.Choices,
+      EndingType: newScene.EndingType,
+      SceneImage: newScene.SceneImage
     });
     this.setState(newState);
     // console.log(newState);
@@ -45,6 +49,9 @@ class App extends Component {
         <div className="gameHeader">
           <h1>Title</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
+        </div>
+        <div style={{display: 'block'}}>
+          <ReactPlayer url='https://www.youtube.com/watch?v=wsKKd8cw7s8' playing={true} loop={true} />
         </div>
         <div className="sceneList">
           {this.state.context.map((scene, i) => (
