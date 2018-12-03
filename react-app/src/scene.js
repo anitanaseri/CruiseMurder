@@ -33,7 +33,22 @@ class Scene extends Component {
                 </p>
             )
         )
-        return choicesComponent;
+        if (Choices.length == 0) {
+            return (
+                <pre className="gameOver"> 
+{'  '},--,     .--.           ,---.    .---..-.   .-.,---.  ,---.    <br></br>
+.' .'     / /\ \ |\    /| | .-'   / .-. )\ \ / / | .-'  | .-.\   <br></br>
+|  |  __ / /__\ \|(\  / | | `-.   | | |(_)\ V /  | `-.  | `-'/   <br></br>
+\  \ ( _)|  __  |(_)\/  | | .-'   | | | |  ) /   | .-'  |   (    <br></br>
+{' '}\  `-) )| |  |)|| \  / | |  `--. \ `-' / (_)    |  `--.| |\ \   <br></br>
+{' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
+(__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
+                </pre>
+            );
+        }
+        else {
+            return choicesComponent;
+        }
     }
 
     render() {

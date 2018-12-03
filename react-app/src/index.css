@@ -36,6 +36,12 @@ button.startOverButton {
   right: 20px;
 }
 
+pre.gameOver {
+  color: red;
+  text-align: center;
+  font-family: monospace;
+}
+
 .gameHeader {
   position: fixed;
   top: 0;
