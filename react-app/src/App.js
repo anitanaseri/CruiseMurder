@@ -37,6 +37,20 @@ class App extends Component {
     return i !== this.state.context.length - 1;
   }
 
+  makeSceneComponent = (scene, i) => {
+    return (
+      <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
+  )}
+
+  mostRecentScene = (context) => {
+    if (context.length > 0) {
+      return this.makeSceneComponent(context[context.length - 1], context.length - 1)
+    }
+    else {
+      return;
+    }
+  }
+
   render() {
     return (
       <div className="gameContainer">
@@ -45,10 +59,12 @@ class App extends Component {
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
         <div className="sceneList">
-          {this.state.context.map((scene, i) => (
-              <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
-            )
-          )}
+          <div className="oldScenes">
+            {this.state.context.slice(0,-1).map(this.makeSceneComponent)}
+          </div>
+          <div className="newScene">
+            {this.mostRecentScene(this.state.context)}
+          </div>
         </div>
       </div>
     );
