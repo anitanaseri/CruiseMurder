@@ -12,6 +12,10 @@ let formatString = string => {
  }
 
 class Scene extends Component {
+    componentDidMount = () => {
+        window.scrollTo(0,document.body.scrollHeight);
+    }
+
     choiceClick = (consequent, sceneHandler) => {
         console.log("clicked button " + consequent);
         fetch("http://localhost:51634/api/scenes/" + consequent)
