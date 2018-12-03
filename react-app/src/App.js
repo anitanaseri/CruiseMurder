@@ -19,6 +19,9 @@ class App extends Component {
                         .then(data => {
                           newContext.push(data);
                           this.setState({context: newContext});
+                          document.getElementsByClassName("gameHeader")[0].style = "background-color: white";
+                          document.getElementsByTagName("body")[0].style = "background-color: white";
+                          document.getElementsByTagName("div")[0].style = "color: black";
                         })
                         .catch(rejected => console.log(rejected));
   }

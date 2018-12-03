@@ -44,8 +44,23 @@ button.startOverButton {
 
 pre.gameOver {
   color: var(--main-red-color);
+  position: relative;
+  top: 50%;
   text-align: center;
   font-family: monospace;
+  font-size : 17px;
+  font-weight: bold;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes example {
+  0%   {font-size : 13px; font-weight: bold;}
+  /*25%  {font-size : 14px; font-weight: bold; position: relative; bottom: 20px}
+  50%  {font-size : 15px; font-weight: bold; position: relative; bottom: 40px}*/
+  100% {font-size : 17px; font-weight: bold; top: 50%; margin-bottom: 50px;}
 }
 
 .gameHeader {
