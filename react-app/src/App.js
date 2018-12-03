@@ -10,8 +10,12 @@ class App extends Component {
   async componentDidMount() {
     let newContext = this.state.context;
     fetch("http://localhost:51634/api/scenes/1")
-                        .then(res => res.json())
+                        .then(res => {
+                          console.log(res);
+                          return res.json();
+                        })
                         .then(data => {
+                          console.log(JSON.stringify(data));
                           newContext.push(data);
                           this.setState({context: newContext});
                         })
@@ -22,6 +26,7 @@ class App extends Component {
     let newState = this.state;
     newState.context.push({
       SceneContent: newScene.SceneContent,
+      SceneImage: newScene.SceneImage,
       Choices: newScene.Choices
     });
     this.setState(newState);

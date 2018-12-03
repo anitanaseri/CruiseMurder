@@ -15,7 +15,8 @@ drop procedure addChoice;
 
 create table Scenes(
 	sceneId int identity(1,1),
-	textContent varchar(2500)
+	textContent varchar(2500),
+	textImage varchar(2500),
 	primary key (sceneId)
 );
 go
@@ -31,9 +32,10 @@ go
 
 create procedure addScene
 (
-	@content varchar(2500)
+	@content varchar(2500),
+	@image varchar(2500) = 'none'
 )
-as insert into Scenes values (@content);
+as insert into Scenes (textContent, textImage) values (@content, @image);
 go
 
 
@@ -41,7 +43,7 @@ create procedure getScene
 (
 	@id int
 )
-as select textContent from Scenes where sceneId = @id;
+as select textContent, textImage from Scenes where sceneId = @id;
 go
 
 --getScene 3;
@@ -360,3 +362,31 @@ select * from Choices
 go
 select * from Scenes
 go
+
+update Scenes set textImage = '
+    _____
+    \/\  |  .
+   ()))))))/
+  ((/ \)))))
+  ((),>((((
+   )\__ ))
+  ( __\((__
+   /  )\/\,\         
+  /.|/ _)_) \
+ ( \ \  o| \|_\
+  \|  )_o| (__\
+ _/| /.__|  _/ \__
+_(_//  /|\\ \ ||\.\
+   /   \|/ \ \_____\
+   ''-..___.''
+     \  |/
+      \ |
+     .'')|
+    ( / |
+    /.\ |
+  (_ \ )|
+   ) -/ )
+ mrf-''_/|' where sceneId = 1;
+
+ select * from Scenes where sceneId = 1;
+ getScene 1;

@@ -39,6 +39,7 @@ class Scene extends Component {
         return (
          <div>
             {formatString(sceneData.SceneContent)}
+            <pre>{sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage}</pre>
             {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
          </div>
         );  
