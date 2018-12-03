@@ -38,7 +38,12 @@ class Scene extends Component {
             )
         )
         if (Choices.length == 0) {
+            document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
+            document.getElementsByTagName("body")[0].style = "background-color: black";
+            document.getElementsByTagName("div")[0].style = "color: red";
+            
             return (
+                <div>
                 <pre className="gameOver"> 
 {'  '},--,     .--.           ,---.    .---..-.   .-.,---.  ,---.    <br></br>
 .' .'     / /\ \ |\    /| | .-'   / .-. )\ \ / / | .-'  | .-.\   <br></br>
@@ -48,6 +53,8 @@ class Scene extends Component {
 {' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
 (__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
                 </pre>
+                
+                </div>
             );
         }
         else {
