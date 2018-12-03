@@ -1,4 +1,5 @@
 body {
+  background-color: white;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,18 +9,58 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  text-align: center;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+button {
+  background-color: #7a68d2;
+  border-width: 1px;
+  border-color: #68676c;
+  color: white;
+  padding: 10px;
+  margin: 2px;
+}
+
+button:hover {
+  background-color: #68676c;
+}
+
+button.startOverButton {
+  position: fixed;
+  right: 20px;
+}
+
+pre.gameOver {
+  color: red;
+  text-align: center;
+  font-family: monospace;
+}
+
+.gameHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.buttonContainer {
+  margin: 5px;
+}
+
 .sceneBox {
-  background-color: slateblue;
-  margin: 25px;
+  text-align: justify;
 }
 
 .sceneList {
-  background-color: slategrey;
+  padding-top: 120px;
   margin-left: 25%;
   margin-right: 25%;
 }

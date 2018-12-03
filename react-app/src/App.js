@@ -38,13 +38,17 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Title</h1>
-        <button onClick={this.startGame}>Start over</button>
-        {this.state.context.map((scene, i) => (
-            <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
-          )
-        )}
+      <div className="gameContainer">
+        <div className="gameHeader">
+          <h1>Title</h1>
+          <button onClick={this.startGame} className="startOverButton">Start over</button>
+        </div>
+        <div className="sceneList">
+          {this.state.context.map((scene, i) => (
+              <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
+            )
+          )}
+        </div>
       </div>
     );
   }

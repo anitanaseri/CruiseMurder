@@ -12,6 +12,10 @@ let formatString = string => {
  }
 
 class Scene extends Component {
+    componentDidMount = () => {
+        window.scrollTo(0,document.body.scrollHeight);
+    }
+
     choiceClick = (consequent, sceneHandler) => {
         console.log("clicked button " + consequent);
         fetch("http://localhost:51634/api/scenes/" + consequent)
@@ -26,20 +30,39 @@ class Scene extends Component {
         if(buttonHidden) return <br/>;
         let choicesComponent = Choices.map((choice, i) => 
             (
-                <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
-                    {Choices[i].Text} 
-                </button>
+                <p>
+                    <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
+                        {Choices[i].Text} 
+                    </button>
+                </p>
             )
         )
-        return choicesComponent;
+        if (Choices.length == 0) {
+            return (
+                <pre className="gameOver"> 
+{'  '},--,     .--.           ,---.    .---..-.   .-.,---.  ,---.    <br></br>
+.' .'     / /\ \ |\    /| | .-'   / .-. )\ \ / / | .-'  | .-.\   <br></br>
+|  |  __ / /__\ \|(\  / | | `-.   | | |(_)\ V /  | `-.  | `-'/   <br></br>
+\  \ ( _)|  __  |(_)\/  | | .-'   | | | |  ) /   | .-'  |   (    <br></br>
+{' '}\  `-) )| |  |)|| \  / | |  `--. \ `-' / (_)    |  `--.| |\ \   <br></br>
+{' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
+(__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
+                </pre>
+            );
+        }
+        else {
+            return choicesComponent;
+        }
     }
 
     render() {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
-         <div>
+         <div className="sceneBox">
             {formatString(sceneData.SceneContent)}
-            {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
+            <div className="buttonContainer">
+                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
+            </div>
          </div>
         );  
     }
