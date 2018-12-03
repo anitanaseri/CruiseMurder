@@ -8,6 +8,7 @@ class App extends Component {
   } 
 
   async componentDidMount() {
+    document.title = "Murder in the Pacific"
     this.startGame();
   }  
 
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <div className="gameContainer">
         <div className="gameHeader">
-          <h1>Title</h1>
+          <h1>Murder in the Pacific</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
         <div className="sceneList">
