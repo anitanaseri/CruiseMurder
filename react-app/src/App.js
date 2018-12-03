@@ -8,7 +8,11 @@ class App extends Component {
   } 
 
   async componentDidMount() {
-    let newContext = this.state.context;
+    this.startGame();
+  }  
+
+  startGame = () => {
+    let newContext = [];
     fetch("http://localhost:51634/api/scenes/1")
                         .then(res => res.json())
                         .then(data => {
@@ -16,7 +20,7 @@ class App extends Component {
                           this.setState({context: newContext});
                         })
                         .catch(rejected => console.log(rejected));
-  }  
+  }
   
   addScene= (newScene) => {
     let newState = this.state;
@@ -36,6 +40,7 @@ class App extends Component {
     return (
       <div>
         <h1>Title</h1>
+        <button onClick={this.startGame}>Start over</button>
         {this.state.context.map((scene, i) => (
             <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
           )
