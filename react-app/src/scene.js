@@ -79,10 +79,10 @@ class Scene extends Component {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
          <div className="sceneBox">
-            <p>{formatString(sceneData.SceneContent)}</p>
-            <pre>{sceneData.SceneImage.trim() === 'none' ? "" : sceneData.SceneImage}</pre>
+            {formatString(sceneData.SceneContent)}
+            <pre>{sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage}</pre>
             <div className="buttonContainer">
-                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
+                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
             </div>
             {this.displayEnding(sceneData.EndingType)}
          </div>
