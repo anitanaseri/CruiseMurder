@@ -25,25 +25,8 @@ class Scene extends Component {
                     sceneHandler(result);
             });
     }
-<<<<<<< HEAD
     displayEnding = (endingType) => {
         if (endingType === 'bad') {
-=======
-
-    attachOptions = (Choices, sceneHandler, buttonHidden, EndingType) => {
-        if(EndingType.trim() !== 'none') console.log(EndingType);
-        if(buttonHidden) return <br/>;
-        let choicesComponent = Choices.map((choice, i) => 
-            (
-                <p>
-                    <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
-                        {Choices[i].Text} 
-                    </button>
-                </p>
-            )
-        )
-        if (Choices.length === 0) {
->>>>>>> origin/master
             document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
             document.getElementsByTagName("body")[0].style = "background-color: black";
             document.getElementsByTagName("div")[0].style = "color: red";
@@ -96,13 +79,8 @@ class Scene extends Component {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
          <div className="sceneBox">
-<<<<<<< HEAD
-            {formatString(sceneData.SceneContent)}
-            <pre>{sceneData.SceneImage === 'none' ? "" : sceneData.SceneImage}</pre>
-=======
             <p>{formatString(sceneData.SceneContent)}</p>
             <pre>{sceneData.SceneImage.trim() === 'none' ? "" : sceneData.SceneImage}</pre>
->>>>>>> origin/master
             <div className="buttonContainer">
                 {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
             </div>
