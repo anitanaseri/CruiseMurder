@@ -11,7 +11,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.startGame();
-    this.setState({playing: true});
+    setTimeout(this.setState({playing: true}), 1000);
   }  
 
   startGame = () => {
