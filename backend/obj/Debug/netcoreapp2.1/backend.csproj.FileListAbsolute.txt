@@ -68,3 +68,17 @@ C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\ba
 C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.dll
 C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.pdb
 C:\Training\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.csprojResolveAssemblyReference.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\bin\Debug\netcoreapp2.1\backend.deps.json
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\bin\Debug\netcoreapp2.1\backend.runtimeconfig.json
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\bin\Debug\netcoreapp2.1\backend.runtimeconfig.dev.json
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\bin\Debug\netcoreapp2.1\backend.dll
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\bin\Debug\netcoreapp2.1\backend.pdb
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.csprojResolveAssemblyReference.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.csproj.CoreCompileInputs.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.RazorAssemblyInfo.cs
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfoInputs.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.AssemblyInfo.cs
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.RazorTargetAssemblyInfo.cache
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.dll
+C:\Users\lumi.shrestha\Documents\CruiseMurder\backend\obj\Debug\netcoreapp2.1\backend.pdb
