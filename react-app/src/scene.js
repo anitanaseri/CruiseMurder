@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GameOver from './gameover';
 
 let formatString = string => {
     return string.split( "\n" ).map(function(item, index) {
@@ -17,47 +18,13 @@ class Scene extends Component {
     }
 
     choiceClick = (consequent, sceneHandler) => {
-        console.log("clicked button " + consequent);
+        // console.log("clicked button " + consequent);
         fetch("http://localhost:51634/api/scenes/" + consequent)
             .then(res => res.json())
             .then(
                 (result) => {
                     sceneHandler(result);
             });
-    }
-    displayEnding = (endingType) => {
-        if (endingType === 'bad') {
-            document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
-            document.getElementsByTagName("body")[0].style = "background-color: black";
-            document.getElementsByTagName("div")[0].style = "color: red";
-            console.log('bad ending');
-            return (
-                <div>
-                <pre className="gameOver"> 
-{'  '},--,     .--.           ,---.    .---..-.   .-.,---.  ,---.    <br></br>
-.' .'     / /\ \ |\    /| | .-'   / .-. )\ \ / / | .-'  | .-.\   <br></br>
-|  |  __ / /__\ \|(\  / | | `-.   | | |(_)\ V /  | `-.  | `-'/   <br></br>
-\  \ ( _)|  __  |(_)\/  | | .-'   | | | |  ) /   | .-'  |   (    <br></br>
-{' '}\  `-) )| |  |)|| \  / | |  `--. \ `-' / (_)    |  `--.| |\ \   <br></br>
-{' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
-(__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
-                </pre>
-                
-                </div>
-            );
-        }else if(endingType === 'good'){
-            return(
-                <div><pre className='theEnd'>
-            _______ .-. .-.,---.    ,---.  .-. .-. ,'|"\   <br/>
-            |__   __||  |||| .-'    | .-'  |  \| | | |\ \  <br/>
-                   {  } )| |   | `-' || `-.    | `-.  |   | | | | \ \ <br/>
-                {   }   (_) |   | .-. || .-'    | .-'  | |\  | | |  \ \   <br/>
-                {  }   | |   | | |)||  `--.  |  `--.| | |)| /(|`-' / <br/>
-                  { }  `-'   /(  (_)/( __.'  /( __.'/(  (_)(__)`--' <br/>
-                    {  }     (__)   (__)     (__)   (__)             <br/>
-                </pre></div>
-            )
-        }
     }
 
     attachOptions = (Choices, sceneHandler, buttonHidden) => {
@@ -84,7 +51,7 @@ class Scene extends Component {
             <div className="buttonContainer">
                 {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
             </div>
-            {this.displayEnding(sceneData.EndingType)}
+            <GameOver endingType={sceneData.EndingType}/>
          </div>
         );  
     }
