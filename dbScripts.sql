@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿
-=======
-
->>>>>>> with_text_image
----------------------- SCENES TABLES -----------------
+﻿---------------------- SCENES TABLES -----------------
 drop table choices;
 drop table scenes;
 drop procedure addScene;
@@ -201,18 +196,11 @@ What did you do?'
 go
 addScene '''What are you talking about?'' you ask, puzzled.
 One of the staff members walks in. ''Here is your bloody Mary, Ms Eleanor''
-<<<<<<< HEAD
 
 Eleanor!! Like the E on the card you found in Dom''s room.
 What was Eleanor doing in Dom''s room?
 Eleanor takes the drink and turns her piercing gaze to you.
 ''Don''t act like you don''t know. I was having a lovely night before you barged in...''
-=======
-Eleanor!! Like the E on the card you found in Dom''s room.
-What was Eleanor doing in Dom''s room?
-Eleanor takes the drink and turns her piercing gaze to you.
-''Don''t act like you dont know. I was having a lovely night before you barged in...''
->>>>>>> with_text_image
 She takes a sip of her drink and looks at you disgustedly.
 ''...and Dom decided he liked the look of you.''
 '
