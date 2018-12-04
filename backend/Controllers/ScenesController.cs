@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ScenesController : ControllerBase
     {
-        string databaseName = "SQL_Workshop_2018";
+        string databaseName = "CruiseMurderDB";
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
