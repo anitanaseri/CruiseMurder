@@ -26,7 +26,8 @@ class Scene extends Component {
             });
     }
 
-    attachOptions = (Choices, sceneHandler, buttonHidden) => {
+    attachOptions = (Choices, sceneHandler, buttonHidden, endingType) => {
+        if(endingType.trim() !== 'none') console.log(endingType);
         if(buttonHidden) return <br/>;
         let choicesComponent = Choices.map((choice, i) => 
             (
@@ -69,7 +70,7 @@ class Scene extends Component {
             {formatString(sceneData.SceneContent)}
             <pre>{sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage}</pre>
             <div className="buttonContainer">
-                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
+                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
             </div>
          </div>
         );  

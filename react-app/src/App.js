@@ -32,9 +32,11 @@ class App extends Component {
   addScene= (newScene) => {
     let newState = this.state;
     newState.context.push({
+      SceneId: newScene.SceneId, 
       SceneContent: newScene.SceneContent,
-      SceneImage: newScene.SceneImage,
-      Choices: newScene.Choices
+      Choices: newScene.Choices,
+      EndingType: newScene.EndingType,
+      SceneImage: newScene.SceneImage
     });
     this.setState(newState);
     // console.log(newState);
