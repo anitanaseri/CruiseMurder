@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import Scene from './scene';
+import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 class App extends Component {
   state = {
-    context: []
+    context: [],
+    playing: false
   } 
 
   async componentDidMount() {
     document.title = "Murder in the Pacific"
     this.startGame();
+    setTimeout(this.setState({playing: true}), 1000);
   }  
 
   startGame = () => {
@@ -66,6 +69,12 @@ class App extends Component {
           <h1>Murder in the Pacific</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
+        <YouTubePlayer
+          id= 'music-player'
+          url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
+          loop playing={this.state.playing}
+          width="0px" height="0px"
+        />
         <div className="sceneList">
           <div className="oldScenes">
             {this.state.context.slice(0,-1).map(this.makeSceneComponent)}

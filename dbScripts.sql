@@ -1,5 +1,4 @@
-﻿
----------------------- SCENES TABLES -----------------
+﻿---------------------- SCENES TABLES -----------------
 drop table choices;
 drop table scenes;
 drop procedure addScene;

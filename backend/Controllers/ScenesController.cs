@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ScenesController : ControllerBase
     {
-        string databaseName = "TestDB";
+        string databaseName = "CruiseMurderDB";
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
             {
                 SceneContent = ds.Tables[0].Rows[0].ItemArray[0].ToString(),
                 SceneImage = ds.Tables[0].Rows[0].ItemArray[1].ToString(),
-                SceneId = (int)ds.Tables[0].Rows[0].ItemArray[2],
+                SceneId = (int) ds.Tables[0].Rows[0].ItemArray[2],
                 EndingType = ds.Tables[0].Rows[0].ItemArray[3].ToString()
             };
 
