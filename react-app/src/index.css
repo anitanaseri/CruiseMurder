@@ -46,7 +46,11 @@ button.startOverButton {
   position: fixed;
   right: 20px;
 }
-
+.map{
+  position: fixed;
+  left: 20px;
+  white-space: pre;
+}
 pre.gameOver {
   color: var(--main-red-color);
   position: relative;
