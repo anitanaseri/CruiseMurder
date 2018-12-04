@@ -10,3 +10,7 @@ Go into backend folder, open backend.csproj in Visual Studio, modify databaseNam
 
 #Start the app
 Navigate to react-app folder. In the console, type 'npm install' to install all the necessary package. Then type 'npm start' to start the app
+
+
+## run the following in order to make the player working
+npm install react-player
