@@ -15,7 +15,10 @@ class App extends Component {
   startGame = () => {
     let newContext = [];
     fetch("http://localhost:51634/api/scenes/1")
-                        .then(res => res.json())
+                        .then(res => {
+                          console.log(res);
+                          return res.json();
+                        })
                         .then(data => {
                           newContext.push(data);
                           this.setState({context: newContext});
@@ -29,8 +32,11 @@ class App extends Component {
   addScene= (newScene) => {
     let newState = this.state;
     newState.context.push({
+      SceneId: newScene.SceneId, 
       SceneContent: newScene.SceneContent,
-      Choices: newScene.Choices
+      Choices: newScene.Choices,
+      EndingType: newScene.EndingType,
+      SceneImage: newScene.SceneImage
     });
     this.setState(newState);
     // console.log(newState);
