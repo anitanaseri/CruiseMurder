@@ -5,11 +5,13 @@ import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 class App extends Component {
   state = {
-    context: []
+    context: [],
+    playing: false
   } 
 
   async componentDidMount() {
     this.startGame();
+    this.setState({playing: true});
   }  
 
   startGame = () => {
@@ -50,11 +52,12 @@ class App extends Component {
           <h1>Title</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
-        {/* <YouTubePlayer
+        <YouTubePlayer
+          id= 'music-player'
           url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
-          playing loop
-          controls
-        /> */}
+          loop playing={this.state.playing}
+          width="0px" height="0px"
+        />
         <div className="sceneList">
           {this.state.context.map((scene, i) => (
               <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
