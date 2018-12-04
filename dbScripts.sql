@@ -197,6 +197,7 @@ What did you do?'
 go
 addScene '''What are you talking about?'' you ask, puzzled.
 One of the staff members walks in. ''Here is your bloody Mary, Ms Eleanor''
+
 Eleanor!! Like the E on the card you found in Dom''s room.
 What was Eleanor doing in Dom''s room?
 Eleanor takes the drink and turns her piercing gaze to you.
