@@ -4,7 +4,7 @@ import { callPlayer } from 'react-player/lib/utils';
 const map = (props) =>{
     const myMap =
     [
-        ["^", "|", "=", "=","=", "=", "=", "|", "^"],
+        ["^", "|", "=", "=", "=", "=", "=", "|", "^"],
         ["^", "|", "D", "=","||", "=", "=", "|", "^"],
         ["^", "|", "=", "=","||", "=", "=", "|", "^"],
         ["^", "|", "B", "=","||", "=", "E", "|", "^"],
@@ -54,7 +54,7 @@ const map = (props) =>{
      }
 
     return (
-        <p>{formatString(drawMap())}</p>
+        <p className="mapBox">{formatString(drawMap())}</p>
         
     );
     
