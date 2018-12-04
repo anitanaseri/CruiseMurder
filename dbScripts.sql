@@ -1,5 +1,4 @@
-use SQL_Workshop_2018;
-go
+
 ---------------------- SCENES TABLES -----------------
 drop table choices;
 drop table scenes;
@@ -15,7 +14,9 @@ drop procedure addChoice;
 
 create table Scenes(
 	sceneId int identity(1,1),
-	textContent varchar(2500)
+	textContent varchar(2500),
+	textImage nvarchar(2500),
+	ending varchar(4),
 	primary key (sceneId)
 );
 go
@@ -31,9 +32,11 @@ go
 
 create procedure addScene
 (
-	@content varchar(2500)
+	@content varchar(2500),
+	@image varchar(2500) = 'none',
+	@ending varchar(4) = 'none'
 )
-as insert into Scenes values (@content);
+as insert into Scenes (textContent, textImage, ending) values (@content, @image, @ending);
 go
 
 
@@ -41,7 +44,7 @@ create procedure getScene
 (
 	@id int
 )
-as select textContent from Scenes where sceneId = @id;
+as select textContent, textImage, sceneId, ending from Scenes where sceneId = @id;
 go
 
 --getScene 3;
@@ -88,7 +91,8 @@ addScene 'You just woke up on the floor of your room. You feel sick and hungover
 go
 addScene 'You stumble into Dom''s unlocked room. Lying naked on the floor is his dead body, with a gold letter opener in his neck, and congealed blood in a puddle around him. The sick feeling in your stomach becomes ten times worse and your hands shake.';
 go
-addScene 'In investigating the murder, the evidence is found to point towards you! After a tumultuous few weeks, you find yourself on trial for murder! GAME OVER'
+addScene 'In investigating the murder, the evidence is found to point towards you! After a tumultuous few weeks, you find yourself on trial for murder!!', @ending = 'bad';
+go
 go
 addScene 'In a daze, you stagger around the room trying to piece together the situation. Everything is a blur, but a distinctive cigar stub and a pair of glittery earrings (not yours) manage to catch your attention. Someone has been here... but who? You notice and pick up a key card with ''E'' written on it in pencil. '
 go
@@ -96,7 +100,7 @@ addScene 'You''re back in the hallway and your head has cleared marginally. A go
 go
 addScene 'You see the gorgeous woman from the hallway leaning over the railing, smoking the same kind of cigar that you found in Dom''s room, looking as though something is eating her from inside. Are you that brazen that you''d mention the murder?'
 go
-addScene 'Her gaze pierces you, and she appears to be about to say something, before storming out of the room. You continue your investigation but before long, the ship''s security guards are escorting you to a locked room and after a short, unfair interview with police, you''re on trial for murder. GAME OVER'
+addScene 'Her gaze pierces you, and she appears to be about to say something, before storming out of the room. You continue your investigation but before long, the ship''s security guards are escorting you to a locked room and after a short, unfair interview with police, you''re on trial for murder.', @ending = 'bad';
 go
 addScene 'Heading back into the ballroom, one of the wait staff calls out to you.  
 ''Bet you had a good night, hey love?'' they jeer, with a funny look on their face.  
@@ -110,7 +114,7 @@ addScene 'You walk inside and a whiskery man turns around. You recognise him fro
 ''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. 
 ''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' 
 You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder. 
-GAME OVER'
+', @ending = 'bad'
 go
 addScene 'Hurry up! You don''t have much time: you need to prove that cold-hearted witch killed Dom. He was so much kinder than her, and she couldn''t bear to see him talking to any other woman. Oh poor Dominic! You need to hurry up and get that man out of the room.'
 go
@@ -134,20 +138,20 @@ go
 addScene 'You find a series of drinks receipts all the way up to 4am last night. That can''t be right. When did she kill Dom? You need to find out the truth.'
 go
 addScene 'While you''re looking underneath the bed, Eleanor''s husband comes back to the room. You recognise him from one of the polaroids. ''Who are you?!'' he exclaims. Before you can say a word, he calls the ship''s reception. ''Hello? Yes, this woman has BARGED into my room and I''d like her dealt with.'' You begin to rush to interrupt him, but a passing security guard notices the struggle and restrains you. Before you know it, you''re on trial for murder.
- 
-GAME OVER'
+', @ending = 'bad'
 go
+
 addScene 'You sidle up to the reception window. A stack of paper lies on the desk with what looks like records of all the customers from last night. If only you had 20/20 vision! You''re tempted to grab it, but the receptionist is standing dangerously close.'
 go
 addScene 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?'' 
 You begin to stammer out an excuse but before you can, he''s calling the security over. Before you know it, you''ve been locked up and put on trial for murder.  
-GAME OVER'
+', @ending = 'bad'
 go
 addScene 'The receptionist frowns. ''I don''t know where you come from, buddy, but here things are more exxy. Four times as exxy'''
 go
 addScene '''Look buddy, that''s not going to work. Security! I need a hand!'' 
 The security come over and after a quick discussion with the receptionist, you''ve been locked up in a secure room. Within hours the police have arrived and all the evidence is pointing to you. 
-GAME OVER'
+', @ending = 'bad'
 go
 addScene 'He reluctantly gives in. ''Be quick.'''
 go
@@ -183,7 +187,7 @@ He brought it upon himself.
 You''re not a bad person. 
 . 
 . 
-After all, he deserved it.'
+After all, he deserved it.', @ending = 'good'
 go
 addScene '''What do you want?''  
 She sounds pissed at you.  
@@ -191,11 +195,15 @@ She sounds pissed at you.
 ''I was enjoying it more before you showed up'' 
 What did you do?'
 go
-addScene '''What do you want?'' 
-She sounds pissed at you. 
-''You enjoying the cruise?'' you enthusiastically enquire. 
-''I was enjoying it more before you showed up'' 
-What did you do?'
+addScene '''What are you talking about?'' you ask, puzzled.
+One of the staff members walks in. ''Here is your bloody Mary, Ms Eleanor''
+Eleanor!! Like the E on the card you found in Dom''s room.
+What was Eleanor doing in Dom''s room?
+Eleanor takes the drink and turns her piercing gaze to you.
+''Don''t act like you dont know. I was having a lovely night before you barged in...''
+She takes a sip of her drink and looks at you disgustedly.
+''...and Dom decided he liked the look of you.''
+'
 go
 addScene 'You slowly start to recollect that you and Dom were chatting for hours in the ballroom. 
 ''Slow down, we were just having fun!'' 
@@ -211,8 +219,8 @@ addScene 'You decide it''s time to accuse her of Dom''s murder.
 ''Of course we should. I''m going to call them right right now.'''
 go
 addScene 'You follow her to the reception and stand while she makes the phone call. The police come and the investigation goes on, before suddenly you are arrested as the prime suspect. 
-GAME OVER'
-go 
+', @ending = 'bad'
+go
 addScene '''You DEFINITELY shouldn''t call them. Your earrings and cigars were all over the room!'' 
 ''I didn''t kill him! I can prove it. I was in the ballroom all night with my husband.'' 
 Eleanor reaches for her bag and shows you the receipts of the drinks she bought late last night with her husband. 
@@ -229,12 +237,12 @@ addScene 'You head back out to the reception, heart pounding, and ask to use the
 . 
 . 
 . 
-It''s going to be you and Dom''s little secret. 
-THE END'
+It''s going to be you and Dom''s little secret. ', @ending = 'good'
 go
 addScene 'Very moral of you. You head back out to the reception, heart pounding, and ask to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
-GAME OVER'
+', @ending = 'bad'
 go
+
 addScene 'The two of you walk back to Dom''s room. A smell of death and depravity greets you at the door. Dom is still where you left him, but the blood is almost completely dry now.'
 go
 addScene 'While searching you notice a GoPro on Dom''s table, pointed at the bed. Curious.'
@@ -245,15 +253,14 @@ go
 addScene 'While she struggles with the door, you tug the letter opener out of Dom''s neck, accompanied by a dribble of thickened blood. As she panics and tears at the door handle, you run up behind her and plunge the letter opener into her neck. 
 You wash your hands thoroughly and head back out to the reception, finally feeling steady, and ask to use the phone to call the police. While they show up and investigate, you sneakily drop the GoPro over the railing. 
 
-It needed to be done. 
-THE END'
+It needed to be done.', @ending = 'good'
 go
 addScene 'Very moral of you. You head back out to the reception, heart pounding. Eleanor asks to use the phone to call the police. They show up to investigate, and arrest you as a suspect. You came here to have fun, and now you live behind bars. 
-GAME OVER'
+', @ending = 'bad'
 go
 
---Start adding choices--
 
+--Start adding choices--
 addChoice 1, 2, 'Go check on Dom';
 go
 addChoice 2, 3, 'Report the murder';
@@ -264,13 +271,14 @@ addChoice 4, 5, 'Leave Dom''s room';
 go
 addChoice 5, 8, 'Go the ballroom';
 go
-addChoice 5, 6, 'Follow her out to the desk';
+addChoice 5, 6, 'Follow her out to the deck';
 go
-addChoice 6, 7, 'Tell Eleanor about Dom''s murder';
+updateChoice @textContent = 'Follow her out to the deck', @pre = 5, @cons = 6;
+go
+addChoice 6, 7, 'Tell her about Dom''s murder';
 go
 addChoice 6, 8, 'Go the the Ballroom';
 go
-
 addChoice 8, 9, 'Go to Eleanor''s room';
 go
 addChoice 9, 10, 'Go inside right away';
@@ -313,11 +321,11 @@ addChoice 26, 27, 'Check the messages you sent last night';
 go
 
 --updateChoice @textContent = 'Look around the room', @pre = 1, @cons = 2;
-
-
 --Eleanor's branch starts here--
 
 addChoice 6, 28, 'Talk to the woman';
+go
+updateChoice @textContent = 'Talk to her', @pre = 6, @cons = 28;
 go
 addChoice 28, 29, 'Talk to the woman again';
 go
@@ -355,6 +363,96 @@ addChoice 41, 42, 'Grab the letter opener and stab Eleanor';
 go
 addChoice 41, 43, 'Confess';
 go
+
+
+update Scenes set textImage = '
+                 __ /___
+           _____/______|
+   _______/_____\_______\_____
+   \   o  o  o    < < <       |
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+' where sceneId = 1;
+go
+
+update Scenes set textImage = '
+                   (  )/  
+                    )(/
+ ________________  ( /)
+()__)____________)))))   
+' where sceneId = 6;
+go
+
+update Scenes set textImage = '     
+      
+
+                    .--.  
+                   / _(c\   .-.     __
+                  | / x  `-;   \`-``  `\______
+                  \_\x / __/ )  /  )   |      \--,
+                  | \`""`__-/ .`--/   /--------\  \
+                                                 `-`
+ ' where sceneId = 2;
+ go
+
+update Scenes set textImage = '  
+  ooo,    .---.
+ o`  o   /    |\________________
+o`   ''oooo(E)| ________   _   _)
+`oo   o` \    |/        | | | |
+  `ooo''   `---''         "-" |_|' where sceneId = 4
+ go
+
+
+
+update Scenes set textImage = '
+               ,{{}}}}}}.
+              {{{{{}}}}}}}.
+             {{{{  {{{{{}}}}
+            }}}}} _   _ {{{{{
+            }}}}  0   0  }}}}}
+           {{{{C    ^    {{{{{
+          }}}}}}\   =  /}}}}}}
+         {{{{{{{{;.___.;{{{{{{{{
+         }}}}}}}}})   (}}}}}}}}}}
+        {{{{}}}}}:   :{{{{{{{{{{
+        {{{}}}}}}  `@` {{{}}}}}}}
+         {{{{{{{{{    }}}}}}}}}
+           }}}}}}}}  {{{{{{{{{
+            {{{{{{{{  }}}}}}
+               }}}}}  {{{{
+                {{{    }}' where sceneId = 6;
+ go
+
+ update Scenes set textImage = '
+              {{{{{}}}}}}}.
+             {{{{  {{{{{}}}}
+            }}}}} \.  ./{{{{{
+            }}}} (0) (0) }}}}}
+           {{{{C    _    {{{{{
+          }}}}}}\  (_)  /}}}}}}
+         {{{{{{{{;.___.;{{{{{{{{
+         }}}}}}}}})   (}}}}}}}}}}
+        {{{{}}}}}:   :{{{{{{{{{{
+        {{{}}}}}}  `@` {{{}}}}}}}
+         {{{{{{{{{    }}}}}}}}}
+           }}}}}}}}  {{{{{{{{{
+            {{{{{{{{  }}}}}}
+               }}}}}  {{{{
+                {{{    }} ' where sceneId = 28;
+go
+
+update Scenes set textImage = '
+            .---.
+           / :""|       {{}}}}.
+           |:`..|      {{{{{{{}}
+            \  _|       /o   }}}}}
+             ) /        \_  {{{{{
+            /`\\          \(`}}}}
+           || |Y|        //`\{{{
+           || |.|       / | ||}}}
+           || |.|       \ | |{{{' where sceneId = 8;
+go					 
+
 
 select * from Choices
 go

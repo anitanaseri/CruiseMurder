@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Scene from './scene';
-import ReactPlayer from 'react-player';
+import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 class App extends Component {
   state = {
@@ -50,9 +50,11 @@ class App extends Component {
           <h1>Title</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
-        <div style={{display: 'block'}}>
-          <ReactPlayer url='https://www.youtube.com/watch?v=wsKKd8cw7s8' playing={true} loop={true} />
-        </div>
+        <YouTubePlayer
+          url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
+          playing loop
+          controls
+        />
         <div className="sceneList">
           {this.state.context.map((scene, i) => (
               <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
