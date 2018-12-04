@@ -25,24 +25,12 @@ class Scene extends Component {
                     sceneHandler(result);
             });
     }
-
-    attachOptions = (Choices, sceneHandler, buttonHidden, EndingType) => {
-        if(EndingType.trim() !== 'none') console.log(EndingType);
-        if(buttonHidden) return <br/>;
-        let choicesComponent = Choices.map((choice, i) => 
-            (
-                <p>
-                    <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
-                        {Choices[i].Text} 
-                    </button>
-                </p>
-            )
-        )
-        if (Choices.length === 0) {
+    displayEnding = (endingType) => {
+        if (endingType === 'bad') {
             document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
             document.getElementsByTagName("body")[0].style = "background-color: black";
             document.getElementsByTagName("div")[0].style = "color: red";
-            
+            console.log('bad ending');
             return (
                 <div>
                 <pre className="gameOver"> 
@@ -57,10 +45,34 @@ class Scene extends Component {
                 
                 </div>
             );
+        }else if(endingType === 'good'){
+            return(
+                <div><pre className='theEnd'>
+            _______ .-. .-.,---.    ,---.  .-. .-. ,'|"\   <br/>
+            |__   __||  |||| .-'    | .-'  |  \| | | |\ \  <br/>
+                   {  } )| |   | `-' || `-.    | `-.  |   | | | | \ \ <br/>
+                {   }   (_) |   | .-. || .-'    | .-'  | |\  | | |  \ \   <br/>
+                {  }   | |   | | |)||  `--.  |  `--.| | |)| /(|`-' / <br/>
+                  { }  `-'   /(  (_)/( __.'  /( __.'/(  (_)(__)`--' <br/>
+                    {  }     (__)   (__)     (__)   (__)             <br/>
+                </pre></div>
+            )
         }
-        else {
-            return choicesComponent;
-        }
+    }
+
+    attachOptions = (Choices, sceneHandler, buttonHidden) => {
+        if(buttonHidden) return <br/>;
+        let choicesComponent = Choices.map((choice, i) => 
+            (
+                <p key={i}>
+                    <button key={i} onClick={this.choiceClick.bind(this, choice.Consequent, sceneHandler)}>
+                        {Choices[i].Text} 
+                    </button>
+                </p>
+            )
+        )
+        
+        return choicesComponent;        
     }
 
     render() {
@@ -70,8 +82,9 @@ class Scene extends Component {
             <p>{formatString(sceneData.SceneContent)}</p>
             <pre>{sceneData.SceneImage.trim() === 'none' ? "" : sceneData.SceneImage}</pre>
             <div className="buttonContainer">
-                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
+                {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden)}
             </div>
+            {this.displayEnding(sceneData.EndingType)}
          </div>
         );  
     }
