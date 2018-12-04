@@ -16,7 +16,6 @@ class App extends Component {
     let newContext = [];
     fetch("http://localhost:51634/api/scenes/1")
                         .then(res => {
-                          console.log(res);
                           return res.json();
                         })
                         .then(data => {

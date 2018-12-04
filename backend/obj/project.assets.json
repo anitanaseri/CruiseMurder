@@ -11791,26 +11791,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lumi.shrestha\\.nuget\\packages\\": {},
+    "C:\\Users\\lam.tu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Training\\CruiseMurder\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\lumi.shrestha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lumi.shrestha\\Documents\\CruiseMurder\\backend\\obj\\",
+      "projectPath": "C:\\Training\\CruiseMurder\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\lam.tu\\.nuget\\packages\\",
+      "outputPath": "C:\\Training\\CruiseMurder\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\lumi.shrestha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lam.tu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11835,20 +11832,20 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.Razor.Design": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "2.1.2"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.1",
-            "autoReferenced": true
-          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.1",
+            "version": "[2.1.1, )",
+            "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Razor.Design": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.1.2, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.1.0, )",
             "autoReferenced": true
           }
         },

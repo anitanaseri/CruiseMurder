@@ -55,6 +55,10 @@ pre.gameOver {
   animation-name: example;
   animation-duration: 3s;
 }
+pre.theEnd{
+  text-align: center;
+  color: var(--main-button-color);
+}
 
 @-webkit-keyframes example {
   0%   {font-size : 13px; font-weight: bold;}
