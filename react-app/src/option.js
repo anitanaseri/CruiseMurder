@@ -24,7 +24,7 @@ class Option extends Component {
     render() {
         const {optionData} = this.props;
         return (
-         <div> 
+         <div className="optionButton"> 
              <Options optionData={optionData}/>
          </div>
         );

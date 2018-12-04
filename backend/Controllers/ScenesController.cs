@@ -32,7 +32,9 @@ namespace WebApplication1.Controllers
             SceneItem item = new SceneItem
             {
                 SceneContent = ds.Tables[0].Rows[0].ItemArray[0].ToString(),
-                SceneImage = ds.Tables[0].Rows[0].ItemArray[1].ToString()
+                SceneImage = ds.Tables[0].Rows[0].ItemArray[1].ToString(),
+                SceneId = (int)ds.Tables[0].Rows[0].ItemArray[2],
+                EndingType = ds.Tables[0].Rows[0].ItemArray[3].ToString()
             };
 
             qry = "getChoicesFromScene " + id;

@@ -1,4 +1,11 @@
 body {
+  --main-bg-color: white;
+  --main-color: black;
+  --light-color: white;
+  --main-button-color: #7a68d2;
+  --main-grey-color: #68676c;
+  --main-red-color: red;
+  background-color: var(--main-bg-color);
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,18 +15,77 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  text-align: center;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+button {
+  background-color: var(--main-button-color);
+  border-width: 1px;
+  border-color: var(--main-button-color);
+  color: var(--light-color);
+  padding: 10px;
+  margin: 2px;
+}
+
+button:hover {
+  background-color: var(--main-grey-color);
+}
+
+button.startOverButton {
+  position: fixed;
+  right: 20px;
+}
+
+pre.gameOver {
+  color: var(--main-red-color);
+  position: relative;
+  top: 50%;
+  text-align: center;
+  font-family: monospace;
+  font-size : 17px;
+  font-weight: bold;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes example {
+  0%   {font-size : 13px; font-weight: bold;}
+  /*25%  {font-size : 14px; font-weight: bold; position: relative; bottom: 20px}
+  50%  {font-size : 15px; font-weight: bold; position: relative; bottom: 40px}*/
+  100% {font-size : 17px; font-weight: bold; top: 50%; margin-bottom: 50px;}
+}
+
+.gameHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: var(--main-bg-color);
+}
+
+.buttonContainer {
+  margin: 5px;
+}
+
 .sceneBox {
-  background-color: slateblue;
-  margin: 25px;
+  text-align: justify;
 }
 
 .sceneList {
-  background-color: slategrey;
+  padding-top: 120px;
   margin-left: 25%;
   margin-right: 25%;
+}
+
+.oldScenes {
+  color: var(--main-grey-color);
 }

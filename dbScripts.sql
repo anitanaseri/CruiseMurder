@@ -197,10 +197,11 @@ What did you do?'
 go
 addScene '''What are you talking about?'' you ask, puzzled.
 One of the staff members walks in. ''Here is your bloody Mary, Ms Eleanor''
+
 Eleanor!! Like the E on the card you found in Dom''s room.
 What was Eleanor doing in Dom''s room?
 Eleanor takes the drink and turns her piercing gaze to you.
-''Don''t act like you dont know. I was having a lovely night before you barged in...''
+''Don''t act like you don''t know. I was having a lovely night before you barged in...''
 She takes a sip of her drink and looks at you disgustedly.
 ''...and Dom decided he liked the look of you.''
 '

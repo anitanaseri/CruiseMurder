@@ -8,19 +8,26 @@ class App extends Component {
   } 
 
   async componentDidMount() {
-    let newContext = this.state.context;
+    document.title = "Murder in the Pacific"
+    this.startGame();
+  }  
+
+  startGame = () => {
+    let newContext = [];
     fetch("http://localhost:51634/api/scenes/1")
                         .then(res => {
                           console.log(res);
                           return res.json();
                         })
                         .then(data => {
-                          console.log(JSON.stringify(data));
                           newContext.push(data);
                           this.setState({context: newContext});
+                          document.getElementsByClassName("gameHeader")[0].style = "background-color: white";
+                          document.getElementsByTagName("body")[0].style = "background-color: white";
+                          document.getElementsByTagName("div")[0].style = "color: black";
                         })
                         .catch(rejected => console.log(rejected));
-  }  
+  }
   
   addScene= (newScene) => {
     let newState = this.state;
@@ -37,14 +44,35 @@ class App extends Component {
     return i !== this.state.context.length - 1;
   }
 
+  makeSceneComponent = (scene, i) => {
+    return (
+      <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
+  )}
+
+  mostRecentScene = (context) => {
+    if (context.length > 0) {
+      return this.makeSceneComponent(context[context.length - 1], context.length - 1)
+    }
+    else {
+      return;
+    }
+  }
+
   render() {
     return (
-      <div>
-        <h1>Title</h1>
-        {this.state.context.map((scene, i) => (
-            <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
-          )
-        )}
+      <div className="gameContainer">
+        <div className="gameHeader">
+          <h1>Murder in the Pacific</h1>
+          <button onClick={this.startGame} className="startOverButton">Start over</button>
+        </div>
+        <div className="sceneList">
+          <div className="oldScenes">
+            {this.state.context.slice(0,-1).map(this.makeSceneComponent)}
+          </div>
+          <div className="newScene">
+            {this.mostRecentScene(this.state.context)}
+          </div>
+        </div>
       </div>
     );
   }
