@@ -26,8 +26,8 @@ class Scene extends Component {
             });
     }
 
-    attachOptions = (Choices, sceneHandler, buttonHidden, endingType) => {
-        if(endingType.trim() !== 'none') console.log(endingType);
+    attachOptions = (Choices, sceneHandler, buttonHidden, EndingType) => {
+        if(EndingType.trim() !== 'none') console.log(EndingType);
         if(buttonHidden) return <br/>;
         let choicesComponent = Choices.map((choice, i) => 
             (
@@ -38,7 +38,7 @@ class Scene extends Component {
                 </p>
             )
         )
-        if (Choices.length == 0) {
+        if (Choices.length === 0) {
             document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
             document.getElementsByTagName("body")[0].style = "background-color: black";
             document.getElementsByTagName("div")[0].style = "color: red";
@@ -67,8 +67,8 @@ class Scene extends Component {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
          <div className="sceneBox">
-            {formatString(sceneData.SceneContent)}
-            <pre>{sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage}</pre>
+            <p>{formatString(sceneData.SceneContent)}</p>
+            <pre>{sceneData.SceneImage.trim() === 'none' ? "" : sceneData.SceneImage}</pre>
             <div className="buttonContainer">
                 {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
             </div>
