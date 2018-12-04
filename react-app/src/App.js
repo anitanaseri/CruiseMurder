@@ -50,11 +50,11 @@ class App extends Component {
           <h1>Title</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
         </div>
-        <YouTubePlayer
+        {/* <YouTubePlayer
           url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
           playing loop
           controls
-        />
+        /> */}
         <div className="sceneList">
           {this.state.context.map((scene, i) => (
               <Scene key={i} sceneData={scene} sceneHandler={this.addScene} buttonHidden={this.hiddenButton.call(this, i)}/>
