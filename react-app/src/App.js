@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Scene from './scene';
 import YouTubePlayer from 'react-player/lib/players/YouTube'
+import Map from './map';
 
 class App extends Component {
   state = {
     context: [],
     playing: false,
-    muteBtnText: " MUTE "
+    muteBtnText: " MUTE ",
+    playerPosition: 'room',
   } 
 
   async componentDidMount() {
@@ -17,6 +19,7 @@ class App extends Component {
   }  
 
   startGame = () => {
+    this.setState({playerPosition: 'room'});
     let newContext = [];
     fetch("http://localhost:51634/api/scenes/1")
                         .then(res => {
@@ -39,12 +42,18 @@ class App extends Component {
       SceneContent: newScene.SceneContent,
       Choices: newScene.Choices,
       EndingType: newScene.EndingType,
-      SceneImage: newScene.SceneImage
+      SceneImage: newScene.SceneImage,
+      SceneLocation: newScene.SceneLocation
     });
     this.setState(newState);
+    this.setState({playerPosition: newScene.SceneLocation});
     // console.log(newState);
   }
 
+  movePlayerOnMap = () => {
+
+  }
+  
   hiddenButton = (i) => {
     return i !== this.state.context.length - 1;
   }
@@ -88,6 +97,14 @@ class App extends Component {
           <h1>Murder in the Pacific</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
           <button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
+          <div className='map'>
+            <strong>Map legend</strong> <br/> 
+            @: Player <br/>
+            D: Dom's room <br/>
+            B: Ballroom <br/>
+            E: Eleanor's room <br/>
+            e: Eleanor <br/>
+             <Map playerPosition={this.state.playerPosition}/></div>
         </div>
         <YouTubePlayer
           id= 'music-player'
