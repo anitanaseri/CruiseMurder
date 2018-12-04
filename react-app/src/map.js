@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { callPlayer } from 'react-player/lib/utils';
 
 const map = (props) =>{
-    const {playerX, playerY} = props;
-
     const myMap =
     [
         ["^", "|", "=", "=","=", "=", "=", "|", "^"],
