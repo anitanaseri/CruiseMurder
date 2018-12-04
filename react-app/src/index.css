@@ -37,6 +37,11 @@ button:hover {
   background-color: var(--main-grey-color);
 }
 
+button.muteButton {
+  position: fixed;
+  right: 120px;
+}
+
 button.startOverButton {
   position: fixed;
   right: 20px;

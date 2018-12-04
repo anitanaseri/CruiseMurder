@@ -6,13 +6,14 @@ import YouTubePlayer from 'react-player/lib/players/YouTube'
 class App extends Component {
   state = {
     context: [],
-    playing: false
+    playing: false,
+    muteBtnText: " MUTE "
   } 
 
   async componentDidMount() {
     document.title = "Murder in the Pacific"
     this.startGame();
-    setTimeout(this.setState({playing: true}), 1000);
+    setTimeout(this.setState({playing: true}), 3000);
   }  
 
   startGame = () => {
@@ -63,12 +64,31 @@ class App extends Component {
     }
   }
 
+  mute = () => {
+    let newState;
+    if(this.state.playing)
+    {
+      newState = {
+      muteBtnText: "Unmute",
+      playing: false
+      };
+    }
+    else{
+      newState = {
+        muteBtnText: " MUTE ",
+        playing: true
+        };
+    }
+    this.setState(newState);
+  }
+
   render() {
     return (
       <div className="gameContainer">
         <div className="gameHeader">
           <h1>Murder in the Pacific</h1>
           <button onClick={this.startGame} className="startOverButton">Start over</button>
+          <button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
         </div>
         <YouTubePlayer
           id= 'music-player'
