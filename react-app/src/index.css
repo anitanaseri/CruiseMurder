@@ -40,6 +40,7 @@ button:hover {
 button.muteButton {
   position: fixed;
   right: 120px;
+  width: 80px;
 }
 
 button.startOverButton {
@@ -97,17 +98,17 @@ pre.theEnd{
 
 .sceneBox {
   text-align: justify;
+  color: var(--main-grey-color);
 }
-
+.sceneBox:last-of-type{
+  color: var(--main-color)
+}
 .sceneList {
   padding-top: 120px;
   margin-left: 25%;
   margin-right: 25%;
 }
 
-.oldScenes {
-  color: var(--main-grey-color);
-}
 
 .modal {
   position: fixed;

@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import gameoverSound from './res/game-over-sound-effect.mp3';
 
 class GameOver extends Component {
+    componentDidMount(){
+        if(this.props.endingType.trim() === "bad"){   
+            this.changeTheme();
+        }
+    }
 
     changeTheme(){
         document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
         document.getElementsByTagName("body")[0].style = "background-color: black";
         document.getElementsByTagName("div")[0].style = "color: red";
-        console.log('bad ending');
+        document.getElementsByClassName("sceneList")[0].lastElementChild.style = "color: red";
     }
-    
+
     render() {
         const {endingType} = this.props;
-        if(endingType.trim() === "bad"){
-            this.changeTheme();
+        if(endingType.trim() === "bad"){            
             return(
                 <div>
                     <audio ref="audio_tag" src={gameoverSound} style={{display:"none"}} controls autoPlay/>
@@ -26,6 +30,7 @@ class GameOver extends Component {
     {' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
     (__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
                     </pre>
+                    
                     </div>
             );
         }
