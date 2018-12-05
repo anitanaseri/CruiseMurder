@@ -24,6 +24,11 @@ code {
     monospace;
 }
 
+a.plainLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 button {
   background-color: var(--main-button-color);
   border-width: 1px;
@@ -122,4 +127,8 @@ pre.theEnd{
   border-radius: 14px;
   max-width: 100%;
   outline: none;
+}
+
+img.modal {
+  width: auto;
 }
