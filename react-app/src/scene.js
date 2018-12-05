@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactModal from 'react-modal';
 import GameOver from './gameover';
 
 let formatString = string => {
@@ -42,12 +43,26 @@ class Scene extends Component {
         return choicesComponent;        
     }
 
+    createSceneImage = (sceneData) => {
+        let imageToUse = sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage;
+        if (sceneData.SceneId == 1) {
+            return (
+                <pre onClick="">{imageToUse}</pre>
+            )
+        }
+        else {
+            return (
+                <pre>{imageToUse}</pre>
+            )
+        }
+    }
+
     render() {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
         return (
          <div className="sceneBox">
             {formatString(sceneData.SceneContent)}
-            <pre>{sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage}</pre>
+            {this.createSceneImage(sceneData)}
             <div className="buttonContainer">
                 {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
             </div>
