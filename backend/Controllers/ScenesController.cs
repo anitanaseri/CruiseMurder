@@ -17,9 +17,6 @@ namespace WebApplication1.Controllers
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
-
-     
-
         // GET api/scenes/id
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)

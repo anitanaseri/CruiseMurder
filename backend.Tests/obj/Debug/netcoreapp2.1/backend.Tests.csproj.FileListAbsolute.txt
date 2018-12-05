@@ -1,0 +1,16 @@
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.Tests.deps.json
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.Tests.runtimeconfig.json
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.Tests.runtimeconfig.dev.json
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.Tests.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.Tests.pdb
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.csprojResolveAssemblyReference.cache
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.csproj.CoreCompileInputs.cache
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.AssemblyInfoInputs.cache
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.AssemblyInfo.cs
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\obj\Debug\netcoreapp2.1\backend.Tests.pdb
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.dll
+C:\Users\thuy.pham\workspace\text_adventure\CruiseMurder\backend.Tests\bin\Debug\netcoreapp2.1\backend.pdb
