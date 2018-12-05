@@ -128,3 +128,7 @@ pre.theEnd{
   max-width: 100%;
   outline: none;
 }
+
+img.modal {
+  width: auto;
+}
