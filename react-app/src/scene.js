@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import Img from 'react-image'
 import GameOver from './gameover';
+import groupImage from './Easteregg.png'
 
 let formatString = string => {
     return string.split( "\n" ).map(function(item, index) {
@@ -14,6 +16,13 @@ let formatString = string => {
  }
 
 class Scene extends Component {
+    constructor() {
+        super();
+        this.state = {
+            showModal: false
+        }
+    }
+
     componentDidMount = () => {
         window.scrollTo(0,document.body.scrollHeight);
     }
@@ -47,7 +56,16 @@ class Scene extends Component {
         let imageToUse = sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage;
         if (sceneData.SceneId == 1) {
             return (
-                <pre onClick="">{imageToUse}</pre>
+                <pre onClick={this.handleOpenModal}>
+                    <ReactModal
+                        ariaHideApp={false}
+                        isOpen={this.state.showModal}
+                        contentLabel="Minimal Modal Example"
+                    >
+                        <Img src={groupImage} />
+                    </ReactModal>
+                    {imageToUse}
+                </pre>
             )
         }
         else {
@@ -56,6 +74,11 @@ class Scene extends Component {
             )
         }
     }
+
+    handleOpenModal = () => {
+		let toggle = !this.state.showModal;
+		this.setState({ showModal: toggle });
+	}
 
     render() {
         const {sceneHandler, sceneData, buttonHidden} = this.props;
