@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import Img from 'react-image'
 import GameOver from './gameover';
-import groupImage from './Easteregg.png'
+import groupImage from './res/vac.jpg'
 
 let formatString = string => {
     return string.split( "\n" ).map(function(item, index) {
@@ -62,7 +62,7 @@ class Scene extends Component {
                         isOpen={this.state.showModal}
                         contentLabel="Minimal Modal Example"
                     >
-                        <Img src={groupImage} />
+                        <img src={groupImage} className="modal" />
                     </ReactModal>
                     {imageToUse}
                 </pre>
