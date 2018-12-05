@@ -4,6 +4,7 @@ import Scene from './scene';
 import YouTubePlayer from 'react-player/lib/players/YouTube'
 import Map from './map';
 import ReactModal from 'react-modal';
+import easterEgg from './easterEgg.PNG';
 
 class App extends Component {
 	constructor() {
@@ -122,12 +123,12 @@ class App extends Component {
 						e: Eleanor <br />
 						<div onClick={this.handleOpenModal}>
 							<ReactModal
-
+								className="modal"
 								ariaHideApp={false}
 								isOpen={this.state.showModal}
 								contentLabel="Minimal Modal Example"
 							>
-								Have fun on your cruise! ~Vacationers 2018/19
+								<img className="modal" src={easterEgg} />
 				 			</ReactModal>
 							<Map playerPosition={this.state.playerPosition} />
 						</div>
