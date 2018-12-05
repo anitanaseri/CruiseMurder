@@ -1,4 +1,5 @@
 ﻿---------------------- SCENES TABLES -----------------
+drop table endingendpoints;
 drop table choices;
 drop table scenes;
 drop procedure addScene;
@@ -32,6 +33,7 @@ go
 
 create procedure addScene
 (
+	
 	@content varchar(2500),
 	@image varchar(2500) = 'none',
 	@ending varchar(4) = 'none',
@@ -153,11 +155,11 @@ addScene 'While you''re looking underneath the bed, Eleanor''s husband comes bac
 go
 
 addScene 'You sidle up to the reception window. A stack of paper lies on the desk with what looks like records of all the customers from last night. If only you had 20/20 vision! You''re tempted to grab it, but the receptionist is standing dangerously close.',
-, @sceneLocation = 'ball'
+@sceneLocation = 'ball'
 go
 addScene 'You reach out and try to snatch the paper, but the reception turns around quick as a flash and snatches it right back. ''ExCUSE me? What do you think you''re doing, buddy?'' 
 You begin to stammer out an excuse but before you can, he''s calling the security over. Before you know it, you''ve been locked up and put on trial for murder.  
-', @ending = 'bad', , @sceneLocation = 'ball'
+', @ending = 'bad', @sceneLocation = 'ball'
 go
 addScene 'The receptionist frowns. ''I don''t know where you come from, buddy, but here things are more exxy. Four times as exxy''',
 @sceneLocation = 'ball'
@@ -582,7 +584,36 @@ update Scenes set textImage = '
 go	
 				 
 
-select * from Choices
+--select * from Choices
+--go
+--select * from Scenes
+--go
+
+create table EndingEndPoints(
+	sceneID int foreign key references Scenes(sceneId),
+	counter int,
+	primary key (sceneID)
+)
 go
-select * from Scenes
+
+insert into EndingEndPoints(sceneID, counter)
+	select sceneID, '0' from Scenes where ending = 'bad' or ending = 'good'
 go
+
+create procedure getCounterAtEnding
+(
+	@sceneID int
+)as select counter, sceneID from EndingEndPoints where sceneID = @sceneID;
+go
+
+create procedure updateCounterAtEnding(
+	@sceneID int
+)as update EndingEndPoints set counter = counter + 1 where sceneID = @sceneID;
+go
+
+select * from EndingEndPoints
+go
+
+getCounterAtEnding 7;
+go
+
