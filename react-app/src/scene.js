@@ -54,7 +54,7 @@ class Scene extends Component {
 
     createSceneImage = (sceneData) => {
         let imageToUse = sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage;
-        if (sceneData.SceneId == 1) {
+        if (sceneData.SceneId == 14) {
             return (
                 <pre onClick={this.handleOpenModal}>
                     <ReactModal
