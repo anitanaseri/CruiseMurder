@@ -89,7 +89,7 @@ class Scene extends Component {
             <div className="buttonContainer">
                 {this.attachOptions(sceneData.Choices, sceneHandler, buttonHidden, sceneData.EndingType)}
             </div>
-            <GameOver endingType={sceneData.EndingType}/>
+            <GameOver endingType={sceneData.EndingType} sceneId={sceneData.SceneId}/>
          </div>
         );  
     }
