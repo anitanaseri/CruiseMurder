@@ -22,6 +22,7 @@ class App extends Component {
 
 	async componentDidMount() {
 		document.title = "Murder in the Pacific"
+		document.documentElement.lang = "en"
 		this.startGame();
 		setTimeout(this.setState({ playing: true }), 3000);
 	}
@@ -93,7 +94,7 @@ class App extends Component {
 		return (
 			<div className="gameContainer">
 
-				<div className="gameHeader">
+				<div className="gameHeader" role="banner">
 					<h1>Murder in the Pacific</h1>
 					<button onClick={this.startGame} className="startOverButton">Start over</button>
 					<button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
@@ -103,16 +104,22 @@ class App extends Component {
             showModal = {this.state.showModal}
           />
 				</div>
-
-				<YouTubePlayer
-					id='music-player'
-					url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
-					loop playing={this.state.playing}
-					width="0px" height="0px"
-				/>
-				<div className="sceneList">
-						{this.state.context.map(this.makeSceneComponent)}
+				<div className="musicPlayerWrapper"
+					tabIndex="-1"
+					aria-hidden="true"
+					style={{display: "none"}}>
+					<YouTubePlayer
+						id='music-player'
+						url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
+						loop playing={this.state.playing}
+					/>
 				</div>
+				<main role="main">
+					SOME TEXT.
+					<div className="sceneList">
+							{this.state.context.map(this.makeSceneComponent)}
+					</div>
+				</main>
 			</div>
 		);
 	}
