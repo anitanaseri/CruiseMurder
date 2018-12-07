@@ -118,7 +118,7 @@ class App extends Component {
 					<h1>Murder in the Pacific</h1>
 					<button onClick={this.startGame} className="startOverButton">Start over</button>
 					<button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
-					<button onClick={this.toggleColorblindMode}>Colorblind Mode</button>
+					<button onClick={this.toggleColorblindMode} className="colorBlindButton">Colorblind Mode</button>
           <MapSidebar 
             handleOpenModal={this.handleOpenModal} 
             playerPosition={this.state.playerPosition}

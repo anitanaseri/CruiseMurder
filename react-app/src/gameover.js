@@ -12,7 +12,7 @@ class GameOver extends Component {
         document.getElementsByClassName("gameHeader")[0].style = "background-color: var(--main-color)";
         document.getElementsByTagName("body")[0].style = "background-color: var(--main-color)";
         document.getElementsByTagName("div")[0].style = "color: var(--main-red-color)";
-        document.getElementsByClassName("sceneList")[0].lastElementChild.style = "color: var(--main-red-color)";
+        document.getElementsByClassName("sceneList")[0].lastElementChild.style = "color: var(--main-red-color)";        
     }
 
     render() {
