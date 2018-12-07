@@ -13,7 +13,8 @@ class App extends Component {
 			playing: false,
 			muteBtnText: "Mute",
 			playerPosition: 'room',
-			showModal: false
+			showModal: false,
+			colorblindMode: false
 		}
 
 		this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -37,9 +38,9 @@ class App extends Component {
 			.then(data => {
 				newContext.push(data);
 				this.setState({ context: newContext });
-				document.getElementsByClassName("gameHeader")[0].style = "background-color: white";
-				document.getElementsByTagName("body")[0].style = "background-color: white";
-				document.getElementsByTagName("div")[0].style = "color: black";
+				document.getElementsByClassName("gameHeader")[0].style = "background-color: var(--main-bg-color)";
+				document.getElementsByTagName("body")[0].style = "background-color: var(--main-bg-color)";
+				document.getElementsByTagName("div")[0].style = "color: var(--main-color)";
 			})
 			.catch(rejected => console.log(rejected));
 	}
@@ -90,6 +91,25 @@ class App extends Component {
 		this.setState(newState);
 	}
 
+	toggleColorblindMode = () => {
+		if (this.state.colorblindMode) {
+			let newState = {
+				colorblindMode: false
+			}
+			this.setState(newState)
+			document.styleSheets[0].rules[0].style.setProperty('--main-red-color', 'red')
+			document.styleSheets[0].rules[0].style.setProperty('--main-button-color', '#7a68d2')
+		}
+		else {
+			let newState = {
+				colorblindMode: true
+			}
+			this.setState(newState)
+			document.styleSheets[0].rules[0].style.setProperty('--main-red-color', 'white')
+			document.styleSheets[0].rules[0].style.setProperty('--main-button-color', 'black')
+		}
+	}
+
 	render() {
 		return (
 			<div className="gameContainer">
@@ -98,6 +118,7 @@ class App extends Component {
 					<h1>Murder in the Pacific</h1>
 					<button onClick={this.startGame} className="startOverButton">Start over</button>
 					<button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
+					<button onClick={this.toggleColorblindMode}>Colorblind Mode</button>
           <MapSidebar 
             handleOpenModal={this.handleOpenModal} 
             playerPosition={this.state.playerPosition}
