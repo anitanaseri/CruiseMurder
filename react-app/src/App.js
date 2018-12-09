@@ -46,8 +46,8 @@ class App extends Component {
 	}
 
 	addScene = (newScene) => {
-		let newState = this.state;
-		newState.context.push({
+		let newContext = this.state.context;
+		newContext.push({
 			SceneId: newScene.SceneId,
 			SceneContent: newScene.SceneContent,
 			Choices: newScene.Choices,
@@ -55,7 +55,7 @@ class App extends Component {
 			SceneImage: newScene.SceneImage,
 			SceneLocation: newScene.SceneLocation
 		});
-		this.setState(newState);
+		this.setState({context: newContext});
 		this.setState({ playerPosition: newScene.SceneLocation });
 	}
 

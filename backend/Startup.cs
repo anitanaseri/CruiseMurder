@@ -27,6 +27,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
@@ -45,15 +46,19 @@ namespace WebApplication1
                 app.UseHsts();
             }
 
+           
+
             app.UseHttpsRedirection();
-            app.UseMvc();
 
-
+            app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
             });
+
+            app.UseMvc();
+
         }
     }
 }

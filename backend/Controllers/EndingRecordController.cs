@@ -1,4 +1,5 @@
 ﻿using backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -44,13 +45,17 @@ namespace backend.Controllers
             string sql = "updateCounterAtEnding " + id;
             try
             {
+                //Request.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                //Request.HttpContext.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+                //Request.HttpContext.Response.Headers.Add("Access-Control-Allow-Headers", "Origin, Content-Type,X-Auth-Token");
                 con.Open();
                 SqlCommand command = new SqlCommand(sql, con);
                 SqlDataAdapter sqlDataAdap = new SqlDataAdapter(command);
                 command.ExecuteNonQuery();
                 command.Dispose();
                 con.Close();
-                return "succeed";
+
+                return Ok();
             }
             catch (Exception _)
             {

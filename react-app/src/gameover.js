@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import gameoverSound from './res/game-over-sound-effect.mp3';
+import Counter from './counter';
 
 class GameOver extends Component {
     componentDidMount(){
@@ -20,6 +21,7 @@ class GameOver extends Component {
         if(endingType.trim() === "bad"){            
             return(
                 <div>
+                    <Counter  sceneId={this.props.sceneId}/>
                     <audio ref="audio_tag" src={gameoverSound} style={{display:"none"}} controls autoPlay/>
                     <pre className="gameOver"> 
     {'  '},--,     .--.           ,---.    .---..-.   .-.,---.  ,---.    <br></br>
@@ -30,7 +32,6 @@ class GameOver extends Component {
     {' '})\____/ |_|  (_)| |\/| | /( __.'  )---'         /( __.'|_| \)\  <br></br>
     (__)             '-'  '-'(__)     (_)           (__)        (__) <br></br>
                     </pre>
-                    
                     </div>
             );
         }
