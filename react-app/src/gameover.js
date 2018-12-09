@@ -9,10 +9,10 @@ class GameOver extends Component {
     }
 
     changeTheme(){
-        document.getElementsByClassName("gameHeader")[0].style = "background-color: black";
-        document.getElementsByTagName("body")[0].style = "background-color: black";
-        document.getElementsByTagName("div")[0].style = "color: red";
-        document.getElementsByClassName("sceneList")[0].lastElementChild.style = "color: red";
+        document.getElementsByClassName("gameHeader")[0].style = "background-color: var(--main-color)";
+        document.getElementsByTagName("body")[0].style = "background-color: var(--main-color)";
+        document.getElementsByTagName("div")[0].style = "color: var(--main-red-color)";
+        document.getElementsByClassName("sceneList")[0].lastElementChild.style = "color: var(--main-red-color)";        
     }
 
     render() {

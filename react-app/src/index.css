@@ -32,7 +32,7 @@ a.plainLink {
 button {
   background-color: var(--main-button-color);
   border-width: 1px;
-  border-color: var(--main-button-color);
+  border-color: var(--light-color);
   color: var(--light-color);
   padding: 10px;
   margin: 2px;
@@ -51,6 +51,12 @@ button.muteButton {
 button.startOverButton {
   position: fixed;
   right: 20px;
+}
+
+button.colorBlindButton {
+  position: fixed;
+  right: 20px;
+  top: 140px;
 }
 
 .map {

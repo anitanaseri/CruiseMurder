@@ -7,7 +7,7 @@ import groupImage from './res/vac.jpg'
 let formatString = string => {
     return string.split( "\n" ).map(function(item, index) {
          return (
-             <span key={index}>
+             <span key={index} tabIndex="0">
              {item}
              <br/>
              </span>
@@ -56,7 +56,7 @@ class Scene extends Component {
         let imageToUse = sceneData.SceneImage == 'none' ? "" : sceneData.SceneImage;
         if (sceneData.SceneId == 14) {
             return (
-                <pre onClick={this.handleOpenModal}>
+                <pre onClick={this.handleOpenModal} aria-hidden="true">
                     <ReactModal
                         ariaHideApp={false}
                         isOpen={this.state.showModal}

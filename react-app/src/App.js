@@ -13,7 +13,8 @@ class App extends Component {
 			playing: false,
 			muteBtnText: "Mute",
 			playerPosition: 'room',
-			showModal: false
+			showModal: false,
+			colorblindMode: false
 		}
 
 		this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -22,6 +23,7 @@ class App extends Component {
 
 	async componentDidMount() {
 		document.title = "Murder in the Pacific"
+		document.documentElement.lang = "en"
 		this.startGame();
 		setTimeout(this.setState({ playing: true }), 3000);
 	}
@@ -36,9 +38,9 @@ class App extends Component {
 			.then(data => {
 				newContext.push(data);
 				this.setState({ context: newContext });
-				document.getElementsByClassName("gameHeader")[0].style = "background-color: white";
-				document.getElementsByTagName("body")[0].style = "background-color: white";
-				document.getElementsByTagName("div")[0].style = "color: black";
+				document.getElementsByClassName("gameHeader")[0].style = "background-color: var(--main-bg-color)";
+				document.getElementsByTagName("body")[0].style = "background-color: var(--main-bg-color)";
+				document.getElementsByTagName("div")[0].style = "color: var(--main-color)";
 			})
 			.catch(rejected => console.log(rejected));
 	}
@@ -89,30 +91,56 @@ class App extends Component {
 		this.setState(newState);
 	}
 
+	toggleColorblindMode = () => {
+		if (this.state.colorblindMode) {
+			let newState = {
+				colorblindMode: false
+			}
+			this.setState(newState)
+			document.styleSheets[0].rules[0].style.setProperty('--main-red-color', 'red')
+			document.styleSheets[0].rules[0].style.setProperty('--main-button-color', '#7a68d2')
+		}
+		else {
+			let newState = {
+				colorblindMode: true
+			}
+			this.setState(newState)
+			document.styleSheets[0].rules[0].style.setProperty('--main-red-color', 'white')
+			document.styleSheets[0].rules[0].style.setProperty('--main-button-color', 'black')
+		}
+	}
+
 	render() {
 		return (
 			<div className="gameContainer">
 
-				<div className="gameHeader">
+				<div className="gameHeader" role="banner">
 					<h1>Murder in the Pacific</h1>
 					<button onClick={this.startGame} className="startOverButton">Start over</button>
 					<button onClick={this.mute} className="muteButton">{this.state.muteBtnText}</button>
+					<button onClick={this.toggleColorblindMode} className="colorBlindButton">Colorblind Mode</button>
           <MapSidebar 
             handleOpenModal={this.handleOpenModal} 
             playerPosition={this.state.playerPosition}
             showModal = {this.state.showModal}
           />
 				</div>
-
-				<YouTubePlayer
-					id='music-player'
-					url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
-					loop playing={this.state.playing}
-					width="0px" height="0px"
-				/>
-				<div className="sceneList">
-						{this.state.context.map(this.makeSceneComponent)}
+				<div className="musicPlayerWrapper"
+					tabIndex="-1"
+					aria-hidden="true"
+					style={{display: "none"}}>
+					<YouTubePlayer
+						id='music-player'
+						url='https://www.youtube.com/watch?v=wsKKd8cw7s8'
+						loop playing={this.state.playing}
+					/>
 				</div>
+				<main role="main">
+					SOME TEXT.
+					<div className="sceneList">
+							{this.state.context.map(this.makeSceneComponent)}
+					</div>
+				</main>
 			</div>
 		);
 	}
