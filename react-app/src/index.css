@@ -15,8 +15,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1{
   text-align: center;
+}
+
+.gameOverCounter{
+  text-align: center;
+  
 }
 
 code {

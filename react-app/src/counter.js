@@ -45,13 +45,20 @@ class Counter extends Component {
     }
 
     render(){
-        return(
-            <div>
-                hi
-                {this.state.counter}
-            </div>
-        )
-    } 
+        if(this.state.counter === 0){
+            return(
+                <div className="gameOverCounter">
+                    You're the first player who made it here!
+                </div>
+            )
+        }else{
+            return(
+                <div className="gameOverCounter">
+                    {this.state.counter} other player(s) made it here!
+                </div>
+            )
+        }
+    }
 }
 
 export default Counter;
