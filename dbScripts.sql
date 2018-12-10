@@ -227,7 +227,7 @@ addScene 'You slowly start to recollect that you and Dom were chatting for hours
 The silence could be cut with a knife.', @sceneLocation = 'deck'
 go
 addScene 'You decide it''s time to accuse her of Dom''s murder. 
-''Look bitch, I know you did it.'' 
+''Look witch, I know you did it.'' 
 ''...did what?'' 
 ''Murdered Dom! You couldn''t handle that he liked me better! And you were dumb enough to leave evidence all over his room!'' 
 ''I-I didn''t! Why would I do that?! We have to go to the police.'' 
