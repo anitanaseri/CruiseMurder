@@ -27,7 +27,7 @@ class Counter extends Component {
             method: "POST"
         };
 
-        fetch("http://localhost:39147/api/EndingRecord/", requestType)
+        fetch("/api/EndingRecord/", requestType)
             // .then(res => res.json())
             .then(res => {
               console.log(res)})
@@ -36,7 +36,7 @@ class Counter extends Component {
     }
 
     getCount = (sceneId) => {
-        fetch("http://localhost:39147/api/EndingRecord/" + sceneId)
+        fetch("/api/EndingRecord/" + sceneId)
             .then(res => res.json())
             .then(data => {
                 this.setState({counter: data.SceneCount})

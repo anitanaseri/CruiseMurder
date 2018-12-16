@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using backend.Models;
 
-namespace WebApplication1.Controllers
+using Amazon.Lambda.Core;
+using Amazon.Lambda.APIGatewayEvents;
+
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
+
+namespace CruiseBackend
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ScenesController : ControllerBase
+    class Scenes
     {
         string databaseName = "CruiseMurderDB";
+        String connectionString = @"data source=cruisemurderdb.cat4spyvo2xb.ap-southeast-2.rds.amazonaws.com;" +
+                "initial catalog=CruiseMurderDB;" +
+                "User Id=sa;Password=12345678";
         SqlConnection con;
         SqlDataAdapter da;
         DataSet ds;
 
-     
+        public Scenes() { }
 
-        // GET api/scenes/id
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public APIGatewayProxyResponse Get(APIGatewayProxyRequest request, ILambdaContext context)
         {
-            con = new SqlConnection(@"data source=cruisemurderdb.cat4spyvo2xb.ap-southeast-2.rds.amazonaws.com;" +
-                "initial catalog=" + databaseName + ";" + 
-                "User Id=sa;" +
-                "Password=12345678");
+            var id = request.Body;
+            con = new SqlConnection(connectionString);
             con.Open();
             string qry = "getScene " + id;
             SqlCommand cmd = new SqlCommand(qry, con);
@@ -63,7 +64,32 @@ namespace WebApplication1.Controllers
             con.Close();
 
             string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(item);
-            return jsonString;
+
+            var response = new APIGatewayProxyResponse
+            {
+                StatusCode = (int)HttpStatusCode.OK,
+                Body = jsonString,
+                Headers = new Dictionary<string, string> { { "Content-Type", "application/json" }, { "Access-Control-Allow-Origin", "*" } }
+            };
+
+            return response;
+        }
+
+        class SceneItem
+        {
+            public string SceneContent { get; set; }
+            public string SceneImage { get; set; }
+            public string EndingType { get; set; }
+            public string SceneLocation { get; set; }
+            public int SceneId { get; set; }
+            public List<ChoiceItem> Choices { get; set; }
+        }
+
+        class ChoiceItem
+        {
+            public int Consequent { get; set; }
+
+            public string Text { get; set; }
         }
     }
 }

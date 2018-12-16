@@ -22,26 +22,40 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            con = new SqlConnection("Server=localhost;Database=" + databaseName + ";Integrated Security=SSPI");
+            con = new SqlConnection(@"data source=cruisemurderdb.cat4spyvo2xb.ap-southeast-2.rds.amazonaws.com;" +
+                "initial catalog=" + databaseName + ";" +
+                "User Id=sa;" +
+                "Password=12345678");
+            con.Open();
             string qry = "getCounterAtEnding " + id;
-            da = new SqlDataAdapter(qry, con);
-            ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count == 0) return "";
-            EndingRecordItem item = new EndingRecordItem
+            SqlCommand cmd = new SqlCommand(qry, con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+            string jsonString = "";
+            if (dataReader.Read())
             {
-                SceneId = (int)ds.Tables[0].Rows[0].ItemArray[1],
-                SceneCount = (int) ds.Tables[0].Rows[0].ItemArray[0]
-            };
+                EndingRecordItem item = new EndingRecordItem
+                {
+                    SceneId = (int)dataReader.GetValue(1),
+                    SceneCount = (int)dataReader.GetValue(0),
+                };
+                jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(item);
+            } 
+            
 
-            string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(item);
+            dataReader.Close();
+            cmd.Dispose();
+            con.Close();
+            
             return jsonString;
         }
 
         [HttpPost]
         public ActionResult<string> Post([FromBody] string id)
         {
-            con = new SqlConnection("Server=localhost;Database=" + databaseName + ";Integrated Security=SSPI");
+            con = new SqlConnection(@"data source=cruisemurderdb.cat4spyvo2xb.ap-southeast-2.rds.amazonaws.com;" +
+                "initial catalog=" + databaseName + ";" +
+                "User Id=sa;" +
+                "Password=12345678");
             string sql = "updateCounterAtEnding " + id;
             try
             {

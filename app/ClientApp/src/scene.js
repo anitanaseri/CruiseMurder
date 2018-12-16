@@ -29,7 +29,7 @@ class Scene extends Component {
 
     choiceClick = (consequent, sceneHandler) => {
         // console.log("clicked button " + consequent);
-        fetch("http://localhost:39147/api/scenes/" + consequent)
+        fetch("/api/scenes/" + consequent)
             .then(res => res.json())
             .then(
                 (result) => {
