@@ -31,7 +31,7 @@ class App extends Component {
 	startGame = () => {
 		this.setState({ playerPosition: 'room' });
 		let newContext = [];
-		fetch("http://localhost:51634/api/scenes/1")
+        fetch("http://localhost:5000/api/scenes/1")
 			.then(res => {
 				return res.json();
 			})
